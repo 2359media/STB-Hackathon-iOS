@@ -7,5 +7,5 @@
 
 
 NSString *const SLCOnboardStoryboardName = @"Onboard";
-NSString *const SLCOnboardStoryboardRegisterViewControllerIdentifier = @"registerViewController";
+NSString *const SLCOnboardStoryboardRegisterViewControllerIdentifier = @"RegisterViewController";
 NSString *const SLCOnboardStoryboardSelectInterestViewControllerIdentifier = @"SelectInterestViewController";

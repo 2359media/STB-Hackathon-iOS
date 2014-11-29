@@ -23,6 +23,7 @@ NSString *const SlocanUserPath = @"/api/v1/users";
 
 @property (nonatomic) NSArray *countries;
 
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *ageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *countryTextField;
 
@@ -35,6 +36,8 @@ NSString *const SlocanUserPath = @"/api/v1/users";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self customizeTextFields];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Sign Up", nil)
                                                                               style:UIBarButtonItemStyleDone
@@ -55,6 +58,20 @@ NSString *const SlocanUserPath = @"/api/v1/users";
     [super didReceiveMemoryWarning];
 }
 
+- (void)customizeTextFields {
+    //Use attributed string to change the placeholder's color.
+    NSDictionary *attributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor] };
+    
+    NSAttributedString *nameString = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"What's your name?", nil) attributes:attributes];
+    self.nameTextField.attributedPlaceholder = nameString;
+
+    NSAttributedString *ageString = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Please select an age group", nil) attributes:attributes];
+    self.ageTextField.attributedPlaceholder = ageString;
+
+    NSAttributedString *countryString = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Which country are you from?", nil) attributes:attributes];
+    self.countryTextField.attributedPlaceholder = countryString;
+}
+
 - (void)userExistsAlert {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"You have signed up previously", nil)
                                                         message:NSLocalizedString(@"You can continue to use the app with your existing data.", nil)
@@ -64,7 +81,7 @@ NSString *const SlocanUserPath = @"/api/v1/users";
     [alertView show];
 }
 
-- (void)signupAction:(id)sender {
+- (IBAction)signupAction:(id)sender {
     BOOL valid = [self validateTextField:self.ageTextField];
     if (valid) {
         valid = [self validateTextField:self.countryTextField];
@@ -142,12 +159,13 @@ NSString *const SlocanUserPath = @"/api/v1/users";
 }
 
 - (void)showSelectInterest {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil] ;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Onboard" bundle:nil] ;
     
     SelectInterestViewController *selectInterestViewController = [storyboard instantiateViewControllerWithIdentifier:@"SelectInterestViewController"];
     selectInterestViewController.delegate = self.delegate;
     
     [self.navigationController pushViewController:selectInterestViewController animated:YES];
+    self.navigationController.navigationBarHidden = NO;
 }
 
 - (BOOL)validateTextField:(UITextField *)textField {

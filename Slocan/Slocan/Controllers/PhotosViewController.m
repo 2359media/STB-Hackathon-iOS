@@ -62,14 +62,14 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    NSString *accessToken = [[NSUserDefaults standardUserDefaults] stringForKey:SlocanAccessToken];
-    if ([accessToken length] == 0) {
+//    NSString *accessToken = [[NSUserDefaults standardUserDefaults] stringForKey:SlocanAccessToken];
+//    if ([accessToken length] == 0) {
         [self showSignUp];
-    } else {
-        if ([self.photos count] == 0) {
-            [self fetchPhotosAtPage:self.currentPage];
-        }
-    }
+//    } else {
+//        if ([self.photos count] == 0) {
+//            [self fetchPhotosAtPage:self.currentPage];
+//        }
+//    }
 }
 
 - (void)showSignUp {
@@ -79,6 +79,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     viewController.delegate = self;
     
     self.signUpNavigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.signUpNavigationController.navigationBarHidden = YES;
     [self presentViewController:self.signUpNavigationController animated:YES completion:nil];
 }
 
