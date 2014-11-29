@@ -1,5 +1,5 @@
 //
-//  ItineraryDetailViewController.h
+//  ItineraryDetailTableViewController.h
 //  Slocan
 //
 //  Created by Hu Junfeng on 29/11/14.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Itinerary.h"
 
-@interface ItineraryDetailViewController : UIViewController
+@interface ItineraryDetailTableViewController : UITableViewController
 
 @property (nonatomic) Itinerary *itinerary; 
 

@@ -7,7 +7,7 @@
 //
 
 #import "ItinerariesViewController.h"
-#import "ItineraryDetailViewController.h"
+#import "ItineraryDetailTableViewController.h"
 #import "Itinerary.h"
 #import "Location.h"
 
@@ -91,12 +91,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:SLCMainStoryboardShowItineraryDetailIdentifier]) {
-        ItineraryDetailViewController *itineraryDetailViewController = segue.destinationViewController;
+        ItineraryDetailTableViewController *itineraryDetailViewController = segue.destinationViewController;
         NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:sender];
         itineraryDetailViewController.itinerary = self.itineraries[(NSUInteger)selectedIndexPath.row];
     }
     else if ([segue.identifier isEqualToString:SLCMainStoryboardCreateNewItineraryIdentifier]) {
-        ItineraryDetailViewController *itineraryDetailViewController = segue.destinationViewController;
+        ItineraryDetailTableViewController *itineraryDetailViewController = segue.destinationViewController;
         itineraryDetailViewController.itinerary = sender;
     }
 }

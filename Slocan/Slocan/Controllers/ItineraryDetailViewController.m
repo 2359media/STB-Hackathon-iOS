@@ -7,54 +7,76 @@
 //
 
 #import "ItineraryDetailViewController.h"
-#import "Itinerary.h"
-#import "Location.h"
+#import "ItineraryDetailTableViewController.h"
+#import "ItineraryDetailMapViewController.h"
 
 @interface ItineraryDetailViewController ()
+
+@property (nonatomic, weak) IBOutlet UIView *containerView;
+
+@property (nonatomic) ItineraryDetailTableViewController *tableViewController;
+@property (nonatomic) ItineraryDetailMapViewController *mapViewController;
 
 @end
 
 @implementation ItineraryDetailViewController
+
+- (ItineraryDetailMapViewController *)mapViewController {
+    if (!_mapViewController) {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:SLCMainStoryboardName bundle:nil];
+        _mapViewController = [mainStoryboard instantiateViewControllerWithIdentifier:SLCMainStoryboardItineraryDetailMapViewControllerIdentifier];
+        _mapViewController.itinerary = self.itinerary;
+    }
+    return _mapViewController;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.itinerary.itineraryName;
 }
 
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return (NSInteger)[self.itinerary.days count];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    ItineraryDay *day = self.itinerary.days[(NSUInteger)section];
-    return (NSInteger)[day.locations count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SLCMainStoryboardLocationCellIdentifier forIndexPath:indexPath];
-    
-    ItineraryDay *day = self.itinerary.days[(NSUInteger)indexPath.section];
-    Location *location = day.locations[(NSUInteger)indexPath.row];
-    
-    cell.textLabel.text = location.locationName;
-    NSString *locationTimeDescription = [NSString stringWithFormat:@"Avg Time Spent: %@ hrs; Best Time To Go: %@", location.averageTimeSpent, NSStringFromSLCTimeToGo(location.bestTimeToGo)];
-    cell.detailTextLabel.text = locationTimeDescription;
-    
-    return cell;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Day %ld", section + 1];
+- (IBAction)switchView:(UIBarButtonItem *)sender {
+    if (sender.tag == 0) {
+        sender.title = NSLocalizedString(@"Table", nil);
+        [self showMapViewController];
+        sender.tag = 1;
+    }
+    else if (sender.tag == 1) {
+        sender.title = NSLocalizedString(@"Map", nil);
+        [self showTableViewController];
+        sender.tag = 0;
+    }
 }
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:SLCMainStoryboardEmbedItineraryTableIdentifier]) {
+        ItineraryDetailTableViewController *tableViewController = segue.destinationViewController;
+        tableViewController.itinerary = self.itinerary;
+        self.tableViewController = tableViewController;
+    }
+}
+
+- (void)showMapViewController {
+    [self switchFromViewController:self.tableViewController toViewController:self.mapViewController];
+}
+
+- (void)showTableViewController {
+    [self switchFromViewController:self.mapViewController toViewController:self.tableViewController];
+}
+
+- (void)switchFromViewController:(UIViewController *)fromViewController toViewController:(UIViewController *)toViewController {
+    // Remove fromViewController
+    [fromViewController willMoveToParentViewController:nil];
+    [fromViewController.view removeFromSuperview];
+    [fromViewController removeFromParentViewController];
+    
+    // Add toViewController
+    [self addChildViewController:toViewController];
+    toViewController.view.frame = self.containerView.bounds;
+    [self.containerView addSubview:toViewController.view];
+    [toViewController didMoveToParentViewController:self];
 }
 
 @end

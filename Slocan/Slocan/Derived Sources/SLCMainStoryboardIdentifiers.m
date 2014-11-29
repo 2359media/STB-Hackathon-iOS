@@ -7,7 +7,10 @@
 
 
 NSString *const SLCMainStoryboardCreateNewItineraryIdentifier = @"CreateNewItinerary";
+NSString *const SLCMainStoryboardEmbedItineraryTableIdentifier = @"EmbedItineraryTable";
 NSString *const SLCMainStoryboardItineraryCellIdentifier = @"ItineraryCell";
+NSString *const SLCMainStoryboardItineraryDetailMapViewControllerIdentifier = @"ItineraryDetailMapViewController";
+NSString *const SLCMainStoryboardItineraryDetailTableViewControllerIdentifier = @"ItineraryDetailTableViewController";
 NSString *const SLCMainStoryboardLocationCellIdentifier = @"LocationCell";
 NSString *const SLCMainStoryboardName = @"Main";
 NSString *const SLCMainStoryboardPhotosViewControllerIdentifier = @"photosViewController";
