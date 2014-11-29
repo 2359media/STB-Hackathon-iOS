@@ -6,6 +6,7 @@
 #import "SLCMainStoryboardIdentifiers.h"
 
 
+NSString *const SLCMainStoryboardCreateNewItineraryIdentifier = @"CreateNewItinerary";
 NSString *const SLCMainStoryboardItineraryCellIdentifier = @"ItineraryCell";
 NSString *const SLCMainStoryboardLocationCellIdentifier = @"LocationCell";
 NSString *const SLCMainStoryboardName = @"Main";

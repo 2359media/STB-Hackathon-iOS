@@ -6,6 +6,7 @@
 #import <UIKit/UIKit.h>
 
 
+extern NSString *const SLCMainStoryboardCreateNewItineraryIdentifier;
 extern NSString *const SLCMainStoryboardItineraryCellIdentifier;
 extern NSString *const SLCMainStoryboardLocationCellIdentifier;
 extern NSString *const SLCMainStoryboardName;

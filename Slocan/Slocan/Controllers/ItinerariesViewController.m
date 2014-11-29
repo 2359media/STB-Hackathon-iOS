@@ -28,42 +28,48 @@
     NSMutableArray *itineraries = [NSMutableArray array];
     
     for (NSInteger idx = 0; idx < 5; idx++) {
-        Itinerary *it = [[Itinerary alloc] init];
-        it.itineraryName = [NSString stringWithFormat:@"Itinerary %ld", idx + 1];
-        
-        NSMutableArray *days = [NSMutableArray array];
-        for (NSInteger dayIdx = 0; dayIdx < 5; dayIdx++) {
-            
-            ItineraryDay *aDay = [[ItineraryDay alloc] init];
-            
-            NSMutableArray *locations = [NSMutableArray array];
-            
-            Location *morningLocation = [[Location alloc] init];
-            morningLocation.locationName = @"Morning Location";
-            morningLocation.averageTimeSpent = @3;
-            morningLocation.bestTimeToGo = SLCTimeToGoMorning;
-            [locations addObject:morningLocation];
-            
-            Location *afternoonLocation = [[Location alloc] init];
-            afternoonLocation.locationName = @"Afternoon Location";
-            afternoonLocation.averageTimeSpent = @3;
-            afternoonLocation.bestTimeToGo = SLCTimeToGoAfternoon;
-            [locations addObject:afternoonLocation];
-            
-            Location *eveningLocation = [[Location alloc] init];
-            eveningLocation.locationName = @"Evening Location";
-            eveningLocation.averageTimeSpent = @3;
-            eveningLocation.bestTimeToGo = SLCTimeToGoEvening;
-            [locations addObject:eveningLocation];
-
-            aDay.locations = [locations copy];
-            [days addObject:aDay];
-        }
-        it.days = [days copy];
-        [itineraries addObject:it];
+        [itineraries addObject:[self fakeItinerary]];
     }
     
     self.itineraries = [itineraries copy];
+}
+
+- (Itinerary *)fakeItinerary {
+    static NSInteger count = 0;
+    
+    Itinerary *it = [[Itinerary alloc] init];
+    it.itineraryName = [NSString stringWithFormat:@"Itinerary %ld", ++count];
+    
+    NSMutableArray *days = [NSMutableArray array];
+    for (NSInteger dayIdx = 0; dayIdx < 5; dayIdx++) {
+        
+        ItineraryDay *aDay = [[ItineraryDay alloc] init];
+        
+        NSMutableArray *locations = [NSMutableArray array];
+        
+        Location *morningLocation = [[Location alloc] init];
+        morningLocation.locationName = @"Morning Location";
+        morningLocation.averageTimeSpent = @3;
+        morningLocation.bestTimeToGo = SLCTimeToGoMorning;
+        [locations addObject:morningLocation];
+        
+        Location *afternoonLocation = [[Location alloc] init];
+        afternoonLocation.locationName = @"Afternoon Location";
+        afternoonLocation.averageTimeSpent = @3;
+        afternoonLocation.bestTimeToGo = SLCTimeToGoAfternoon;
+        [locations addObject:afternoonLocation];
+        
+        Location *eveningLocation = [[Location alloc] init];
+        eveningLocation.locationName = @"Evening Location";
+        eveningLocation.averageTimeSpent = @3;
+        eveningLocation.bestTimeToGo = SLCTimeToGoEvening;
+        [locations addObject:eveningLocation];
+        
+        aDay.locations = [locations copy];
+        [days addObject:aDay];
+    }
+    it.days = [days copy];
+    return it;
 }
 
 #pragma mark - UITableViewDataSource
@@ -89,6 +95,10 @@
         NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:sender];
         itineraryDetailViewController.itinerary = self.itineraries[(NSUInteger)selectedIndexPath.row];
     }
+    else if ([segue.identifier isEqualToString:SLCMainStoryboardCreateNewItineraryIdentifier]) {
+        ItineraryDetailViewController *itineraryDetailViewController = segue.destinationViewController;
+        itineraryDetailViewController.itinerary = sender;
+    }
 }
 
 #pragma mark - Actions
@@ -105,7 +115,11 @@
         NSString *durationDescription = NSStringFromItineraryDuration(duration);
         
         [alertController addAction:[UIAlertAction actionWithTitle:durationDescription style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            NSLog(@"You select duration %ld (%@)", duration, durationDescription);
+
+            // TODO: Request the server for a new itinerary
+            Itinerary *newItinerary = [self fakeItinerary];
+            [self performSegueWithIdentifier:SLCMainStoryboardCreateNewItineraryIdentifier sender:newItinerary];
+            
         }]];
     }
     

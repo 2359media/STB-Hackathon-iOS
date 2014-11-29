@@ -142,6 +142,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="CVC-s1-soo" kind="push" identifier="CreateNewItinerary" id="238-iq-m1V"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kgv-ND-RXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -213,4 +216,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="238-iq-m1V"/>
+    </inferredMetricsTieBreakers>
 </document>

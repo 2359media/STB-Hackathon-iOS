@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = self.itinerary.itineraryName;
 }
 
 #pragma mark - UITableViewDataSource
