@@ -19,12 +19,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *outdoorButton;
 @property (weak, nonatomic) IBOutlet UIButton *shopButton;
 
+@property (assign) NSInteger interestCount;
+
 @end
 
 @implementation SelectInterestViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.interestCount = 0;
     // Do any additional setup after loading the view.
     
     [self.navigationItem setHidesBackButton:YES];
@@ -39,10 +43,20 @@
     if ([self.delegate conformsToProtocol:@protocol(SignupDelegate)]) {
         [self.delegate didSignupFrom:self];
     }
+    [self dismissOnboarding];
 }
 
 - (IBAction)toggleInterest:(id)sender {
+    self.interestCount++;
     
+    UIButton *selectedButton = (UIButton *)sender;
+    [selectedButton setHighlighted:YES];    
+}
+
+- (void)dismissOnboarding {
+    if ([self.delegate conformsToProtocol:@protocol(SignupDelegate)]) {
+        [self.delegate didSignupFrom:self];
+    }
 }
 
 @end
