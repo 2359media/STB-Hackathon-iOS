@@ -27,6 +27,7 @@
                                 UIViewAutoresizingFlexibleWidth |
                                 UIViewAutoresizingFlexibleBottomMargin;
         self.imageView.autoresizingMask = self.autoresizingMask;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return self;
 }
