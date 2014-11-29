@@ -11,6 +11,12 @@
 		01CB003A1A29A7A70017A3C9 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB00391A29A7A70017A3C9 /* PhotosViewController.m */; };
 		01CB003F1A29B2730017A3C9 /* SlocanPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB003E1A29B2730017A3C9 /* SlocanPhotoView.m */; };
 		14921CD57D235940493F0923 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150FD1B13A579D3A80730DE7 /* Foundation.framework */; };
+		1E0583141A2A0BE000500758 /* NeutraText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E05830F1A2A0BE000500758 /* NeutraText-Bold.otf */; };
+		1E0583151A2A0BE000500758 /* NeutraText-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E0583101A2A0BE000500758 /* NeutraText-Book.otf */; };
+		1E0583161A2A0BE000500758 /* NeutraText-Demi.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E0583111A2A0BE000500758 /* NeutraText-Demi.otf */; };
+		1E0583171A2A0BE000500758 /* NeutraText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E0583121A2A0BE000500758 /* NeutraText-Light.otf */; };
+		1E0583181A2A0BE000500758 /* NeutraText-LightSC.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E0583131A2A0BE000500758 /* NeutraText-LightSC.otf */; };
+		1E05831B1A2A0D6F00500758 /* UIFont+AppFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E05831A1A2A0D6F00500758 /* UIFont+AppFonts.m */; };
 		1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9C81A29A4CD00D899E6 /* Itinerary.m */; };
 		1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9CB1A29A53400D899E6 /* Location.m */; };
 		1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */; };
@@ -51,6 +57,13 @@
 		01CB003D1A29B2730017A3C9 /* SlocanPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlocanPhotoView.h; sourceTree = "<group>"; };
 		01CB003E1A29B2730017A3C9 /* SlocanPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlocanPhotoView.m; sourceTree = "<group>"; };
 		150FD1B13A579D3A80730DE7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1E05830F1A2A0BE000500758 /* NeutraText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeutraText-Bold.otf"; sourceTree = "<group>"; };
+		1E0583101A2A0BE000500758 /* NeutraText-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeutraText-Book.otf"; sourceTree = "<group>"; };
+		1E0583111A2A0BE000500758 /* NeutraText-Demi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeutraText-Demi.otf"; sourceTree = "<group>"; };
+		1E0583121A2A0BE000500758 /* NeutraText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeutraText-Light.otf"; sourceTree = "<group>"; };
+		1E0583131A2A0BE000500758 /* NeutraText-LightSC.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeutraText-LightSC.otf"; sourceTree = "<group>"; };
+		1E0583191A2A0D6F00500758 /* UIFont+AppFonts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+AppFonts.h"; sourceTree = "<group>"; };
+		1E05831A1A2A0D6F00500758 /* UIFont+AppFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+AppFonts.m"; sourceTree = "<group>"; };
 		1E5EB9C71A29A4CD00D899E6 /* Itinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Itinerary.h; sourceTree = "<group>"; };
 		1E5EB9C81A29A4CD00D899E6 /* Itinerary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Itinerary.m; sourceTree = "<group>"; };
 		1E5EB9CA1A29A53400D899E6 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
@@ -130,6 +143,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1E05830E1A2A0BE000500758 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1E05830F1A2A0BE000500758 /* NeutraText-Bold.otf */,
+				1E0583101A2A0BE000500758 /* NeutraText-Book.otf */,
+				1E0583111A2A0BE000500758 /* NeutraText-Demi.otf */,
+				1E0583121A2A0BE000500758 /* NeutraText-Light.otf */,
+				1E0583131A2A0BE000500758 /* NeutraText-LightSC.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		1EDDBA281A29C2770023DB4F /* Derived Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +232,7 @@
 				97AEE4086A98F5EC497DB2C3 /* Storyboards */,
 				FC270D8C4B3A3A93DD3B3554 /* Nibs */,
 				16A5DFCAA49C5E1F8F671A0C /* Other-Sources */,
+				1E05830E1A2A0BE000500758 /* Fonts */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -302,6 +328,8 @@
 		D00C76762988FFB049170C91 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				1E0583191A2A0D6F00500758 /* UIFont+AppFonts.h */,
+				1E05831A1A2A0D6F00500758 /* UIFont+AppFonts.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -406,8 +434,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E0583161A2A0BE000500758 /* NeutraText-Demi.otf in Resources */,
+				1E0583141A2A0BE000500758 /* NeutraText-Bold.otf in Resources */,
+				1E0583171A2A0BE000500758 /* NeutraText-Light.otf in Resources */,
 				D2B5922F1A29DC2E002F3167 /* SLCPickerToolbar.xib in Resources */,
+				1E0583181A2A0BE000500758 /* NeutraText-LightSC.otf in Resources */,
 				F18E3F5CC072FBE42FC80BB9 /* Images.xcassets in Resources */,
+				1E0583151A2A0BE000500758 /* NeutraText-Book.otf in Resources */,
 				D2B592261A29CDD1002F3167 /* countries.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +534,7 @@
 				1EDDBA2B1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m in Sources */,
 				1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */,
 				1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */,
+				1E05831B1A2A0D6F00500758 /* UIFont+AppFonts.m in Sources */,
 				D2B5922D1A29DC0A002F3167 /* SLCPickerToolbar.m in Sources */,
 				2CBA6C04240E96E0D1E68391 /* AppDelegate.m in Sources */,
 				FED6FD80C1FB449BBCA6E420 /* Main.storyboard in Sources */,
