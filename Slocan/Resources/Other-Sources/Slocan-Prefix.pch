@@ -12,5 +12,6 @@
     #import "SLCMainStoryboardIdentifiers.h"
     #import "UIColor+Hex.h"
     #import "UIFont+AppFonts.h"
+    #import <UIColor-HTMLColors/UIColor+HTMLColors.h>
 #endif
 

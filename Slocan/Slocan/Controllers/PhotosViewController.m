@@ -62,21 +62,24 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    NSString *accessToken = [[NSUserDefaults standardUserDefaults] stringForKey:SlocanAccessToken];
-    if ([accessToken length] == 0) {
+//    NSString *accessToken = [[NSUserDefaults standardUserDefaults] stringForKey:SlocanAccessToken];
+//    if ([accessToken length] == 0) {
         [self showSignUp];
-    } else {
-        if ([self.photos count] == 0) {
-            [self fetchPhotosAtPage:self.currentPage];
-        }
-    }
+//    } else {
+//        if ([self.photos count] == 0) {
+//            [self fetchPhotosAtPage:self.currentPage];
+//        }
+//    }
 }
 
 - (void)showSignUp {
-    RegisterViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:SLCMainStoryboardRegisterViewControllerIdentifier];
+    
+    UIStoryboard *onboardStoryboard = [UIStoryboard storyboardWithName:@"Onboard" bundle:nil];
+    RegisterViewController *viewController = [onboardStoryboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
     viewController.delegate = self;
     
     self.signUpNavigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.signUpNavigationController.navigationBarHidden = YES;
     [self presentViewController:self.signUpNavigationController animated:YES completion:nil];
 }
 
@@ -193,6 +196,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     
     if (self.informationButton == nil) {
         self.informationButton = [self constructInformationButton];
+        self.informationButton.center = CGPointMake(CGRectGetWidth(self.view.frame)/2, self.nopeButton.center.y);
     }
     
     if (self.likeButton == nil) {
@@ -256,13 +260,16 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 
 // Create and add the "nope" button.
 - (UIButton *)constructNopeButton {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage *image = [UIImage imageNamed:@"nope"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [UIImage imageNamed:@"unlike"];
+    UIImage *selectedImage = [UIImage imageNamed:@"unlike_selected"];
     button.frame = CGRectMake(ChoosePhotoButtonHorizontalPadding,
                               CGRectGetMaxY(self.backCardView.frame) + ChoosePhotoButtonVerticalPadding,
                               image.size.width,
                               image.size.height);
     [button setImage:image forState:UIControlStateNormal];
+    [button setImage:selectedImage forState:UIControlStateHighlighted];
+    [button setImage:selectedImage forState:UIControlStateSelected];
     [button setTintColor:[UIColor colorWithRed:247.f/255.f
                                          green:91.f/255.f
                                           blue:37.f/255.f
@@ -275,10 +282,11 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 }
 
 - (UIButton *)constructInformationButton {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    UIImage *image = [UIImage imageNamed:@"liked"];
-    button.center = CGPointMake(CGRectGetWidth(self.view.frame)/2,
-                                CGRectGetMaxY(self.backCardView.frame) + ChoosePhotoButtonVerticalPadding + image.size.height/2);
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [UIImage imageNamed:@"info"];
+    
+    button.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+    [button setImage:image forState:UIControlStateNormal];
     
     [button addTarget:self action:@selector(showInformation) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
@@ -287,13 +295,16 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 
 // Create and add the "like" button.
 - (UIButton *)constructLikedButton {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage *image = [UIImage imageNamed:@"liked"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [UIImage imageNamed:@"like"];
+    UIImage *selectedImage = [UIImage imageNamed:@"like_selected"];
     button.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChoosePhotoButtonHorizontalPadding,
                               CGRectGetMaxY(self.backCardView.frame) + ChoosePhotoButtonVerticalPadding,
                               image.size.width,
                               image.size.height);
     [button setImage:image forState:UIControlStateNormal];
+    [button setImage:selectedImage forState:UIControlStateHighlighted];
+    [button setImage:selectedImage forState:UIControlStateSelected];
     [button setTintColor:[UIColor colorWithRed:29.f/255.f
                                          green:245.f/255.f
                                           blue:106.f/255.f
@@ -346,10 +357,12 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"You noped %@.", self.currentPhoto[@"url"]);
         
+        [self.nopeButton setHighlighted:YES];
         [self votePhotoWithID:[self.currentPhoto[@"id"] integerValue] asLiked:NO];
     } else {
         NSLog(@"You liked %@.", self.currentPhoto[@"url"]);
         
+        [self.likeButton setHighlighted:YES];
         [self votePhotoWithID:[self.currentPhoto[@"id"] integerValue] asLiked:YES];
     }
 
@@ -367,7 +380,10 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              self.backCardView.alpha = 1.f;
-                         } completion:nil];
+                         } completion:^(BOOL finished) {
+                             [self.nopeButton setHighlighted:NO];
+                             [self.likeButton setHighlighted:NO];
+                         }];
     }
     
     // Load next page.
