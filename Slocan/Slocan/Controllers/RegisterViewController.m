@@ -12,6 +12,7 @@
 
 #import <AFNetworking/AFNetworking.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "UIFont+AppFonts.h"
 
 NSString *const SlocanUserID = @"SlocanUserID";
 NSString *const SlocanAccessToken = @"SlocanAccessToken";
@@ -36,6 +37,8 @@ NSString *const SlocanUserPath = @"/api/v1/users";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self showSelectInterest];
     
     [self customizeTextFields];
     
@@ -165,6 +168,18 @@ NSString *const SlocanUserPath = @"/api/v1/users";
     selectInterestViewController.delegate = self.delegate;
     
     [self.navigationController pushViewController:selectInterestViewController animated:YES];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:46.0/255 green:36.0/255 blue:54.0/255 alpha:1.0f]];
+    
+    NSDictionary *titleAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont appBookFontOfSize:20.f], NSFontAttributeName,
+                                [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont appBookFontOfSize:15.f], NSFontAttributeName,
+                                     [UIColor whiteColor], NSForegroundColorAttributeName, nil];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:titleAttributes];
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
     self.navigationController.navigationBarHidden = NO;
 }
 

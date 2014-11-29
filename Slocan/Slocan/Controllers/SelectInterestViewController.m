@@ -10,7 +10,7 @@
 
 @interface SelectInterestViewController ()
 
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *skipButton;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *artsButton;
 @property (weak, nonatomic) IBOutlet UIButton *entertainmentButton;
@@ -31,7 +31,17 @@
     self.interestCount = 0;
     // Do any additional setup after loading the view.
     
+    [self.confirmButton setEnabled:NO];
     [self.navigationItem setHidesBackButton:YES];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,16 +57,39 @@
 }
 
 - (IBAction)toggleInterest:(id)sender {
-    self.interestCount++;
-    
     UIButton *selectedButton = (UIButton *)sender;
-    [selectedButton setHighlighted:YES];    
+    if ([selectedButton isSelected]) {
+        [selectedButton setSelected:NO];
+        self.interestCount--;
+        selectedButton.alpha = 1.0f;
+    }
+    else {
+        [selectedButton setSelected:YES];
+        self.interestCount++;
+        selectedButton.alpha = 0.2f;
+    }
+    
+    if (self.interestCount >= 3) {
+        [self.confirmButton setTitle:NSLocalizedString(@"3 items selected. Let's go!", nil) forState:UIControlStateNormal];
+        [self.confirmButton setEnabled:YES];
+    }
+    else {
+        [self.confirmButton setTitle:NSLocalizedString(@"Please select 3 interests!", nil) forState:UIControlStateNormal];
+    }
 }
 
 - (void)dismissOnboarding {
     if ([self.delegate conformsToProtocol:@protocol(SignupDelegate)]) {
         [self.delegate didSignupFrom:self];
     }
+}
+
+- (IBAction)dismissWithoutInterest:(id)sender {
+    [self dismissOnboarding];
+}
+
+- (IBAction)dismissWithInterest:(id)sender {
+    [self dismissOnboarding];
 }
 
 @end

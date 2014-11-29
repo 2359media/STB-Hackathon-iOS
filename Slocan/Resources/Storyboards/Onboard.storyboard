@@ -10,6 +10,13 @@
             <string>NeutraText-Book</string>
             <string>NeutraText-Book</string>
             <string>NeutraText-Book</string>
+            <string>NeutraText-Book</string>
+            <string>NeutraText-Book</string>
+            <string>NeutraText-Book</string>
+            <string>NeutraText-Book</string>
+            <string>NeutraText-Book</string>
+            <string>NeutraText-Book</string>
+            <string>NeutraText-Book</string>
         </mutableArray>
         <mutableArray key="NeutraText-Light.otf">
             <string>NeutraText-Light</string>
@@ -200,80 +207,181 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rA1-09-KhS">
-                                <rect key="frame" x="16" y="356" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainBackground" translatesAutoresizingMaskIntoConstraints="NO" id="vER-F9-G6P">
+                                <rect key="frame" x="0.0" y="20" width="320" height="504"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6FX-Vs-E4z">
+                                <rect key="frame" x="0.0" y="53" width="320" height="471"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rA1-09-KhS">
+                                        <rect key="frame" x="0.0" y="0.0" width="158" height="158"/>
+                                        <color key="backgroundColor" red="0.1529411765" green="0.1019607843" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" backgroundImage="category_art">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="category_art"/>
+                                        <connections>
+                                            <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="Ox1-O5-wW2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cB5-Fq-DrT">
+                                        <rect key="frame" x="162" y="324" width="158" height="158"/>
+                                        <color key="backgroundColor" red="0.1529411765" green="0.1019607843" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" backgroundImage="category_shop">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="category_shop"/>
+                                        <connections>
+                                            <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="1qj-V7-os0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4j-OH-OJh">
+                                        <rect key="frame" x="0.0" y="324" width="158" height="158"/>
+                                        <color key="backgroundColor" red="0.1529411765" green="0.1019607843" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" backgroundImage="category_outdoor">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="category_outdoor"/>
+                                        <connections>
+                                            <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="uPa-DP-cWK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efc-oZ-je3">
+                                        <rect key="frame" x="162" y="0.0" width="158" height="158"/>
+                                        <color key="backgroundColor" red="0.1529411765" green="0.1019607843" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" backgroundImage="category_entertainment">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="category_entertainment"/>
+                                        <connections>
+                                            <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="5fg-vD-rWJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="181-gd-WdQ">
+                                        <rect key="frame" x="162" y="162" width="158" height="158"/>
+                                        <color key="backgroundColor" red="0.1529411765" green="0.1019607843" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" backgroundImage="category_food">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="category_food"/>
+                                        <connections>
+                                            <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="4wN-bZ-j3a"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4i-I7-JcW">
+                                        <rect key="frame" x="18" y="442" width="64" height="21"/>
+                                        <fontDescription key="fontDescription" name="NeutraText-Book" family="Neutra Text" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyW-qt-neZ">
+                                        <rect key="frame" x="0.0" y="162" width="158" height="158"/>
+                                        <color key="backgroundColor" red="0.1529411765" green="0.1019607843" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" backgroundImage="category_events">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="category_events"/>
+                                        <connections>
+                                            <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="c2J-kF-w3a"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h40-sX-62N">
+                                        <rect key="frame" x="178" y="290" width="40" height="21"/>
+                                        <fontDescription key="fontDescription" name="NeutraText-Book" family="Neutra Text" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_art" translatesAutoresizingMaskIntoConstraints="NO" id="GaD-Ep-4Sz">
+                                        <rect key="frame" x="14" y="95" width="33" height="40"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_entertainment" translatesAutoresizingMaskIntoConstraints="NO" id="HRa-5v-jnk">
+                                        <rect key="frame" x="171" y="91" width="33" height="40"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_events" translatesAutoresizingMaskIntoConstraints="NO" id="h0l-Rf-lHJ">
+                                        <rect key="frame" x="8" y="258" width="33" height="40"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_food" translatesAutoresizingMaskIntoConstraints="NO" id="4wK-BE-oph">
+                                        <rect key="frame" x="169" y="256" width="33" height="40"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_outdoor" translatesAutoresizingMaskIntoConstraints="NO" id="D4r-Pv-g5W">
+                                        <rect key="frame" x="14" y="410" width="33" height="40"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_shop" translatesAutoresizingMaskIntoConstraints="NO" id="Oow-9R-W63">
+                                        <rect key="frame" x="172" y="409" width="33" height="40"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Arts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fh-fh-94R">
+                                        <rect key="frame" x="18" y="125" width="31" height="21"/>
+                                        <fontDescription key="fontDescription" name="NeutraText-Book" family="Neutra Text" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Events" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O30-Qd-LCa">
+                                        <rect key="frame" x="18" y="290" width="52" height="21"/>
+                                        <fontDescription key="fontDescription" name="NeutraText-Book" family="Neutra Text" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Entertainment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PH3-vd-9GQ">
+                                        <rect key="frame" x="176" y="125" width="108" height="21"/>
+                                        <fontDescription key="fontDescription" name="NeutraText-Book" family="Neutra Text" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Shop" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNE-7r-jDf">
+                                        <rect key="frame" x="177" y="442" width="41" height="21"/>
+                                        <fontDescription key="fontDescription" name="NeutraText-Book" family="Neutra Text" pointSize="15"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="471" id="hpV-MW-wkv"/>
+                                    <constraint firstAttribute="width" constant="320" id="ihi-Ig-psv"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN4-uQ-UT5">
+                                <rect key="frame" x="0.0" y="525" width="320" height="43"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.74509803919999995" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="43" id="szg-J7-Ljr"/>
+                                    <constraint firstAttribute="height" constant="43" id="xeB-5q-8FC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NeutraText-Book" family="Neutra Text" pointSize="20"/>
+                                <state key="normal" title="Please select 3 interests!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="Ox1-O5-wW2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cB5-Fq-DrT">
-                                <rect key="frame" x="168" y="356" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="1qj-V7-os0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4j-OH-OJh">
-                                <rect key="frame" x="16" y="58" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="uPa-DP-cWK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="181-gd-WdQ">
-                                <rect key="frame" x="168" y="58" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="4wN-bZ-j3a"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyW-qt-neZ">
-                                <rect key="frame" x="16" y="207" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="c2J-kF-w3a"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efc-oZ-je3">
-                                <rect key="frame" x="168" y="207" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="5fg-vD-rWJ"/>
+                                    <action selector="dismissWithInterest:" destination="Fqq-7r-clQ" eventType="touchUpInside" id="DWW-AZ-LKf"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eN4-uQ-UT5" firstAttribute="leading" secondItem="oRg-dy-ThR" secondAttribute="leadingMargin" constant="-16" id="3n5-kq-5DQ"/>
+                            <constraint firstItem="vER-F9-G6P" firstAttribute="top" secondItem="33n-wP-g7u" secondAttribute="bottom" id="KWL-Xf-iYh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vER-F9-G6P" secondAttribute="trailing" constant="-16" id="NN2-sY-WrQ"/>
+                            <constraint firstAttribute="centerX" secondItem="6FX-Vs-E4z" secondAttribute="centerX" id="PcP-vg-xNm"/>
+                            <constraint firstItem="vER-F9-G6P" firstAttribute="leading" secondItem="oRg-dy-ThR" secondAttribute="leadingMargin" constant="-16" id="aTQ-fN-adE"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="eN4-uQ-UT5" secondAttribute="bottom" id="atn-MU-eP3"/>
+                            <constraint firstItem="gSm-Hc-xsr" firstAttribute="top" secondItem="vER-F9-G6P" secondAttribute="bottom" id="cUa-el-Xwi"/>
+                            <constraint firstAttribute="centerY" secondItem="6FX-Vs-E4z" secondAttribute="centerY" constant="-4.5" id="dYE-br-Yuf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eN4-uQ-UT5" secondAttribute="trailing" constant="-16" id="sZB-QG-av4"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Pick My Interests" id="nYw-Qx-DlW">
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="pse-nJ-X0C">
                             <connections>
-                                <action selector="skipSelectInterest:" destination="Fqq-7r-clQ" id="EXi-ea-cFY"/>
+                                <action selector="dismissWithoutInterest:" destination="Fqq-7r-clQ" id="vcN-OY-Kro"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="artsButton" destination="l4j-OH-OJh" id="M5j-zs-gBM"/>
+                        <outlet property="confirmButton" destination="eN4-uQ-UT5" id="Dea-Lk-MZA"/>
                         <outlet property="entertainmentButton" destination="181-gd-WdQ" id="l5l-D7-ahF"/>
                         <outlet property="eventsButton" destination="zyW-qt-neZ" id="bYg-C2-Qnd"/>
                         <outlet property="foodButton" destination="efc-oZ-je3" id="Nc0-cB-BDA"/>
@@ -283,11 +391,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CKj-ro-sVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="72.533333333333331" y="252.75999999999999"/>
+            <point key="canvasLocation" x="72" y="252"/>
         </scene>
     </scenes>
     <resources>
+        <image name="MainBackground" width="1080" height="1920"/>
         <image name="RegisterBackground" width="360" height="640"/>
+        <image name="category_art" width="174" height="163"/>
+        <image name="category_entertainment" width="174" height="163"/>
+        <image name="category_events" width="174" height="163"/>
+        <image name="category_food" width="174" height="163"/>
+        <image name="category_outdoor" width="174" height="163"/>
+        <image name="category_shop" width="174" height="163"/>
+        <image name="icon_art" width="26" height="23"/>
+        <image name="icon_entertainment" width="23" height="25"/>
+        <image name="icon_events" width="19" height="26"/>
+        <image name="icon_food" width="18" height="26"/>
+        <image name="icon_outdoor" width="24" height="24"/>
+        <image name="icon_shop" width="25" height="26"/>
         <image name="logo" width="160" height="167"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
