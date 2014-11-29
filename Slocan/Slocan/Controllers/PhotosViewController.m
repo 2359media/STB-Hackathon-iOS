@@ -9,6 +9,8 @@
 #import "PhotosViewController.h"
 #import "RegisterViewController.h"
 
+#import "PhotoDetailsViewController.h"
+
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import <AFNetworking/AFNetworking.h>
 #import <SVProgressHUD/SVProgressHUD.h>
@@ -31,6 +33,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 @property (nonatomic, strong) SlocanPhotoView *frontCardView;
 @property (nonatomic, strong) SlocanPhotoView *backCardView;
 
+@property (nonatomic, strong) UIButton *informationButton;
 @property (nonatomic, strong) UIButton *likeButton;
 @property (nonatomic, strong) UIButton *nopeButton;
 
@@ -67,7 +70,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 }
 
 - (void)showSignUp {
-    RegisterViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"registerViewController"];
+    RegisterViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:SLCMainStoryboardRegisterViewControllerIdentifier];
     viewController.delegate = self;
     
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
@@ -185,6 +188,10 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
         self.nopeButton = [self constructNopeButton];
     }
     
+    if (self.informationButton == nil) {
+        self.informationButton = [self constructInformationButton];
+    }
+    
     if (self.likeButton == nil) {
         self.likeButton = [self constructLikedButton];
     }
@@ -264,6 +271,17 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     return button;
 }
 
+- (UIButton *)constructInformationButton {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    UIImage *image = [UIImage imageNamed:@"liked"];
+    button.center = CGPointMake(CGRectGetWidth(self.view.frame)/2,
+                                CGRectGetMaxY(self.backCardView.frame) + ChoosePhotoButtonVerticalPadding + image.size.height/2);
+    
+    [button addTarget:self action:@selector(showInformation) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    return button;
+}
+
 // Create and add the "like" button.
 - (UIButton *)constructLikedButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -285,6 +303,14 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 }
 
 #pragma mark Control Events
+
+- (void)showInformation {
+    UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:SLCMainStoryboardPhotoDetailsNavigationControllerIdentifier];
+    PhotoDetailsViewController *photoDetailsViewController = (PhotoDetailsViewController *)[[navigationController childViewControllers] firstObject];
+    photoDetailsViewController.photo = self.currentPhoto;
+    
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
 
 // Programmatically "nopes" the front card view.
 - (void)nopeFrontCardView {
