@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		01A2FF3E1A2A1DCB00E4E120 /* SLCToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2FF3D1A2A1DCB00E4E120 /* SLCToolbarView.m */; };
+		01A2FF401A2A3D3100E4E120 /* Bender-Inline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 01A2FF3F1A2A3D3100E4E120 /* Bender-Inline.otf */; };
+		01A2FF431A2A40CB00E4E120 /* UIView+SLCLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2FF421A2A40CB00E4E120 /* UIView+SLCLabel.m */; };
 		01CB00371A29A7870017A3C9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB00361A29A7870017A3C9 /* RegisterViewController.m */; };
 		01CB003A1A29A7A70017A3C9 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB00391A29A7A70017A3C9 /* PhotosViewController.m */; };
 		01CB003F1A29B2730017A3C9 /* SlocanPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB003E1A29B2730017A3C9 /* SlocanPhotoView.m */; };
@@ -55,6 +57,9 @@
 /* Begin PBXFileReference section */
 		01A2FF3C1A2A1DCB00E4E120 /* SLCToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCToolbarView.h; sourceTree = "<group>"; };
 		01A2FF3D1A2A1DCB00E4E120 /* SLCToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCToolbarView.m; sourceTree = "<group>"; };
+		01A2FF3F1A2A3D3100E4E120 /* Bender-Inline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bender-Inline.otf"; sourceTree = "<group>"; };
+		01A2FF411A2A40CB00E4E120 /* UIView+SLCLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SLCLabel.h"; sourceTree = "<group>"; };
+		01A2FF421A2A40CB00E4E120 /* UIView+SLCLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SLCLabel.m"; sourceTree = "<group>"; };
 		01CB00351A29A7870017A3C9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		01CB00361A29A7870017A3C9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		01CB00381A29A7A70017A3C9 /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
@@ -161,6 +166,7 @@
 		1E05830E1A2A0BE000500758 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				01A2FF3F1A2A3D3100E4E120 /* Bender-Inline.otf */,
 				1E05830F1A2A0BE000500758 /* NeutraText-Bold.otf */,
 				1E0583101A2A0BE000500758 /* NeutraText-Book.otf */,
 				1E0583111A2A0BE000500758 /* NeutraText-Demi.otf */,
@@ -355,6 +361,8 @@
 			children = (
 				1E0583191A2A0D6F00500758 /* UIFont+AppFonts.h */,
 				1E05831A1A2A0D6F00500758 /* UIFont+AppFonts.m */,
+				01A2FF411A2A40CB00E4E120 /* UIView+SLCLabel.h */,
+				01A2FF421A2A40CB00E4E120 /* UIView+SLCLabel.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -435,6 +443,11 @@
 				CLASSPREFIX = "";
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "2359 Media Pte Ltd.";
+				TargetAttributes = {
+					A0A245F96BB28EB1343172E1 = {
+						DevelopmentTeam = 3HQ4QKMBWB;
+					};
+				};
 			};
 			buildConfigurationList = 2357D203D244129D40D439E0 /* Build configuration list for PBXProject "Slocan" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -467,6 +480,7 @@
 				F18E3F5CC072FBE42FC80BB9 /* Images.xcassets in Resources */,
 				1E0583151A2A0BE000500758 /* NeutraText-Book.otf in Resources */,
 				D2B592261A29CDD1002F3167 /* countries.plist in Resources */,
+				01A2FF401A2A3D3100E4E120 /* Bender-Inline.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +577,7 @@
 				1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */,
 				1E05831B1A2A0D6F00500758 /* UIFont+AppFonts.m in Sources */,
 				D2B592331A29EF8B002F3167 /* SelectInterestViewController.m in Sources */,
+				01A2FF431A2A40CB00E4E120 /* UIView+SLCLabel.m in Sources */,
 				D2B5922D1A29DC0A002F3167 /* SLCPickerToolbar.m in Sources */,
 				2CBA6C04240E96E0D1E68391 /* AppDelegate.m in Sources */,
 				01CB00421A29F5160017A3C9 /* PhotoDetailsViewController.m in Sources */,
@@ -645,7 +660,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
 				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -732,7 +747,7 @@
 			baseConfigurationReference = 3FF4FA53FC26008C75CDD6FE /* Pods-Slocan.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

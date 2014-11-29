@@ -275,8 +275,9 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 }
 
 - (UIButton *)constructInformationButton {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeInfoLight];
-    UIImage *image = [UIImage imageNamed:@"liked"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [UIImage imageNamed:@"info"];
+    [button setImage:image forState:UIControlStateNormal];
     button.center = CGPointMake(CGRectGetWidth(self.view.frame)/2,
                                 CGRectGetMaxY(self.backCardView.frame) + ChoosePhotoButtonVerticalPadding + image.size.height/2);
     

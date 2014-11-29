@@ -257,23 +257,29 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8j-kV-4an">
                                         <rect key="frame" x="10" y="74" width="300" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5w-Ci-eml">
+                                        <rect key="frame" x="10" y="105" width="300" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69h-o7-jmb">
-                                        <rect key="frame" x="10" y="104" width="300" height="17"/>
+                                        <rect key="frame" x="10" y="132" width="300" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue tip" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qX-A1-9BD">
-                                        <rect key="frame" x="10" y="461" width="300" height="18"/>
+                                        <rect key="frame" x="10" y="489" width="300" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ilq-Lo-9Wu">
-                                        <rect key="frame" x="0.0" y="131" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="159" width="320" height="320"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="FAj-ii-Psj"/>
                                             <constraint firstAttribute="height" constant="320" id="jE8-ew-Sof"/>
@@ -282,17 +288,21 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="69h-o7-jmb" firstAttribute="leading" secondItem="bfx-FR-iA5" secondAttribute="leading" constant="10" id="4gW-tW-eEF"/>
-                                    <constraint firstAttribute="bottom" secondItem="0qX-A1-9BD" secondAttribute="bottom" constant="10" id="Bz1-7j-HLq"/>
+                                    <constraint firstItem="r5w-Ci-eml" firstAttribute="top" secondItem="S8j-kV-4an" secondAttribute="bottom" constant="10" id="L4p-gM-ixT"/>
                                     <constraint firstAttribute="trailing" secondItem="S8j-kV-4an" secondAttribute="trailing" constant="10" id="RYT-lu-iVA"/>
                                     <constraint firstItem="0qX-A1-9BD" firstAttribute="top" secondItem="Ilq-Lo-9Wu" secondAttribute="bottom" constant="10" id="VTp-mC-c3z"/>
+                                    <constraint firstAttribute="bottom" secondItem="0qX-A1-9BD" secondAttribute="bottom" constant="10" id="WEk-Kp-XFn"/>
+                                    <constraint firstItem="r5w-Ci-eml" firstAttribute="leading" secondItem="bfx-FR-iA5" secondAttribute="leading" constant="10" id="aNg-EX-tCF"/>
+                                    <constraint firstAttribute="trailing" secondItem="r5w-Ci-eml" secondAttribute="trailing" constant="10" id="c1R-0p-Smc"/>
                                     <constraint firstItem="Ilq-Lo-9Wu" firstAttribute="leading" secondItem="bfx-FR-iA5" secondAttribute="leading" id="gcI-nz-yim"/>
+                                    <constraint firstAttribute="centerX" secondItem="r5w-Ci-eml" secondAttribute="centerX" id="jR2-n1-MOi"/>
                                     <constraint firstItem="S8j-kV-4an" firstAttribute="leading" secondItem="bfx-FR-iA5" secondAttribute="leading" constant="10" id="jp1-aL-6cA"/>
                                     <constraint firstItem="0qX-A1-9BD" firstAttribute="leading" secondItem="bfx-FR-iA5" secondAttribute="leading" constant="10" id="mH7-Fx-xT6"/>
-                                    <constraint firstItem="69h-o7-jmb" firstAttribute="top" secondItem="S8j-kV-4an" secondAttribute="bottom" constant="10" id="o43-wA-FM1"/>
                                     <constraint firstItem="Ilq-Lo-9Wu" firstAttribute="top" secondItem="69h-o7-jmb" secondAttribute="bottom" constant="10" id="phd-dC-mjX"/>
                                     <constraint firstAttribute="trailing" secondItem="0qX-A1-9BD" secondAttribute="trailing" constant="10" id="vI1-DH-1FS"/>
                                     <constraint firstAttribute="trailing" secondItem="69h-o7-jmb" secondAttribute="trailing" constant="10" id="wlg-hp-9Vn"/>
                                     <constraint firstAttribute="height" constant="568" id="xXi-WS-eBD"/>
+                                    <constraint firstItem="69h-o7-jmb" firstAttribute="top" secondItem="r5w-Ci-eml" secondAttribute="bottom" constant="10" id="yNB-bo-21w"/>
                                     <constraint firstAttribute="trailing" secondItem="Ilq-Lo-9Wu" secondAttribute="trailing" id="z8c-yW-shC"/>
                                 </constraints>
                             </scrollView>
@@ -305,12 +315,12 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcy-I4-U5E" userLabel="Close Button">
-                                        <rect key="frame" x="140" y="25" width="40" height="30"/>
-                                        <state key="normal" title="Close"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcy-I4-U5E" userLabel="Close Button">
+                                        <rect key="frame" x="143" y="23" width="34" height="34"/>
+                                        <state key="normal" image="close"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua8-He-q1n" userLabel="Like Button">
-                                        <rect key="frame" x="235" y="17.5" width="45" height="45"/>
+                                        <rect key="frame" x="235" y="17" width="45" height="45"/>
                                         <state key="normal" image="liked">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -332,7 +342,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="5vQ-xY-UiE" secondAttribute="trailing" id="8Sx-CY-Pbv"/>
                             <constraint firstItem="FcP-H5-qjH" firstAttribute="top" secondItem="5vQ-xY-UiE" secondAttribute="bottom" id="HEW-Qi-5KX"/>
@@ -348,13 +358,14 @@
                         <outlet property="photoImageView" destination="Ilq-Lo-9Wu" id="HRN-Cg-6W5"/>
                         <outlet property="toolbarView" destination="5vQ-xY-UiE" id="W5l-8H-CBl"/>
                         <outlet property="venueAddressLabel" destination="69h-o7-jmb" id="G18-dg-ig1"/>
+                        <outlet property="venueCategoryLabel" destination="r5w-Ci-eml" id="Nm7-yp-0sY"/>
                         <outlet property="venueNameLabel" destination="S8j-kV-4an" id="EX5-ou-tL3"/>
                         <outlet property="venueTipLabel" destination="0qX-A1-9BD" id="9ld-JA-ZVN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KP8-qj-J2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1627" y="-14"/>
+            <point key="canvasLocation" x="1627" y="-13.5"/>
         </scene>
         <!--Itinerary Detail-->
         <scene sceneID="ez1-xO-nb5">
@@ -581,6 +592,7 @@
         <image name="TabBarIconAttractionSelected" width="24" height="23"/>
         <image name="TabBarIconScheduleNormal" width="24" height="23"/>
         <image name="TabBarIconScheduleSelected" width="24" height="23"/>
+        <image name="close" width="34" height="34"/>
         <image name="liked" width="45" height="45"/>
         <image name="nope" width="44" height="45"/>
     </resources>
