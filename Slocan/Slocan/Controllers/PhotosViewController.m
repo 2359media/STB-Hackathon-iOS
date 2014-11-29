@@ -64,14 +64,14 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-//    NSString *accessToken = [[NSUserDefaults standardUserDefaults] stringForKey:SlocanAccessToken];
-//    if ([accessToken length] == 0) {
+    NSString *accessToken = [[NSUserDefaults standardUserDefaults] stringForKey:SlocanAccessToken];
+    if ([accessToken length] == 0) {
         [self showSignUp];
-//    } else {
-//        if ([self.photos count] == 0) {
-//            [self fetchPhotosAtPage:self.currentPage];
-//        }
-//    }
+    } else {
+        if ([self.photos count] == 0) {
+            [self fetchPhotosAtPage:self.currentPage];
+        }
+    }
 }
 
 - (void)showSignUp {

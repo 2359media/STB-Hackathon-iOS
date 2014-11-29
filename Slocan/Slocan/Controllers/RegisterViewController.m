@@ -37,9 +37,7 @@ NSString *const SlocanUserPath = @"/api/v1/users";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self showSelectInterest];
-    
+        
     [self customizeTextFields];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Sign Up", nil)
