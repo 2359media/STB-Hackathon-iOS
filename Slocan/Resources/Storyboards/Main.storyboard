@@ -88,7 +88,6 @@
                     <view key="view" contentMode="scaleToFill" id="8Zi-hy-kkg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Slocan" id="ss5-7a-Hbd"/>
                 </viewController>
@@ -473,10 +472,10 @@
             </objects>
             <point key="canvasLocation" x="2199" y="658"/>
         </scene>
-        <!--Custom Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="nNE-hg-VwK">
             <objects>
-                <viewController id="fho-bZ-zHJ" customClass="MHCustomTabBarController" sceneMemberID="viewController">
+                <viewController id="fho-bZ-zHJ" customClass="TabBarController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WGy-E2-cZj"/>
                         <viewControllerLayoutGuide type="bottom" id="78b-G9-0K3"/>
@@ -519,7 +518,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="6Qf-k0-BUs" secondAttribute="bottom" id="2am-Gb-620"/>
                                     <constraint firstItem="6Qf-k0-BUs" firstAttribute="width" secondItem="bof-to-srH" secondAttribute="width" priority="750" id="3By-Je-GLW"/>
@@ -533,7 +532,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Z3K-ea-QOA" secondAttribute="trailing" id="1Z3-PS-hUE"/>
                             <constraint firstAttribute="trailing" secondItem="EC3-Ub-Igz" secondAttribute="trailing" id="55E-2x-GTW"/>

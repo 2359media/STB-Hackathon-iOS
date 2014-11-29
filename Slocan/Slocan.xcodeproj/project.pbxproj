@@ -22,6 +22,7 @@
 		1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9C81A29A4CD00D899E6 /* Itinerary.m */; };
 		1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9CB1A29A53400D899E6 /* Location.m */; };
 		1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */; };
+		1E72D3111A2A3FC200D57573 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E72D3101A2A3FC200D57573 /* TabBarController.m */; };
 		1E9D16DF1A2A32CE00824128 /* SLCTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D16DE1A2A32CE00824128 /* SLCTabBarButton.m */; };
 		1EBC4AC11A29F172006A68AE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBC4AC01A29F172006A68AE /* CoreLocation.framework */; };
 		1EDDBA2B1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDDBA2A1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m */; };
@@ -78,6 +79,8 @@
 		1E5EB9CB1A29A53400D899E6 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		1E5EB9D01A29AF9000D899E6 /* ItinerariesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItinerariesViewController.h; sourceTree = "<group>"; };
 		1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItinerariesViewController.m; sourceTree = "<group>"; };
+		1E72D30F1A2A3FC200D57573 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		1E72D3101A2A3FC200D57573 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		1E9D16DD1A2A32CE00824128 /* SLCTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCTabBarButton.h; sourceTree = "<group>"; };
 		1E9D16DE1A2A32CE00824128 /* SLCTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCTabBarButton.m; sourceTree = "<group>"; };
 		1EBC4AC01A29F172006A68AE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -196,6 +199,8 @@
 			children = (
 				5F99A39345F9890EC0B4DD0B /* AppDelegate.h */,
 				F6EA00E6A1E9177F17997B73 /* AppDelegate.m */,
+				1E72D30F1A2A3FC200D57573 /* TabBarController.h */,
+				1E72D3101A2A3FC200D57573 /* TabBarController.m */,
 				01CB00351A29A7870017A3C9 /* RegisterViewController.h */,
 				01CB00361A29A7870017A3C9 /* RegisterViewController.m */,
 				01CB00381A29A7A70017A3C9 /* PhotosViewController.h */,
@@ -547,6 +552,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E72D3111A2A3FC200D57573 /* TabBarController.m in Sources */,
 				01CB00371A29A7870017A3C9 /* RegisterViewController.m in Sources */,
 				1EDDBA2E1A29DEB80023DB4F /* ItineraryDetailViewController.m in Sources */,
 				01CB003F1A29B2730017A3C9 /* SlocanPhotoView.m in Sources */,
