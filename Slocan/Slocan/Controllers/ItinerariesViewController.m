@@ -112,9 +112,13 @@
 - (IBAction)createNewItinerary:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Choose A Duration", nil) 
                                                                              message:NSLocalizedString(@"How long would you plan for your next itinerary?", nil)
-                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
+                                                                       preferredStyle:UIAlertControllerStyleAlert];
     
     NSArray *allDurations = @[ @(SLCItineraryDurationHalfDay), @(SLCItineraryDurationOneDay), @(SLCItineraryDurationThreeDays) ];
+
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = NSLocalizedString(@"Name", nil);
+    }];
     
     for (NSNumber *aDuration in allDurations) {
         SLCItineraryDuration duration = [aDuration unsignedIntegerValue];
@@ -122,8 +126,11 @@
         
         [alertController addAction:[UIAlertAction actionWithTitle:durationDescription style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
 
+            UITextField *nameTextField = [alertController.textFields firstObject];
+            
             // TODO: Request the server for a new itinerary
             Itinerary *newItinerary = [self fakeItinerary];
+            newItinerary.itineraryName = nameTextField.text;
             [self.itineraries addObject:newItinerary];
             [self.tableView reloadData];
             [self performSegueWithIdentifier:SLCMainStoryboardCreateNewItineraryIdentifier sender:newItinerary];
