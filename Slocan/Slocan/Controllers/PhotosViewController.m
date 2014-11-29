@@ -354,10 +354,12 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"You noped %@.", self.currentPhoto[@"url"]);
         
+        [self.nopeButton setHighlighted:YES];
         [self votePhotoWithID:[self.currentPhoto[@"id"] integerValue] asLiked:NO];
     } else {
         NSLog(@"You liked %@.", self.currentPhoto[@"url"]);
         
+        [self.likeButton setHighlighted:YES];
         [self votePhotoWithID:[self.currentPhoto[@"id"] integerValue] asLiked:YES];
     }
 
@@ -375,7 +377,10 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              self.backCardView.alpha = 1.f;
-                         } completion:nil];
+                         } completion:^(BOOL finished) {
+                             [self.nopeButton setHighlighted:NO];
+                             [self.likeButton setHighlighted:NO];
+                         }];
     }
     
     // Load next page.
