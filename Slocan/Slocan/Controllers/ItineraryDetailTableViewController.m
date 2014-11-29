@@ -9,6 +9,7 @@
 #import "ItineraryDetailTableViewController.h"
 #import "Itinerary.h"
 #import "Location.h"
+#import "SLCLocationCell.h"
 
 @interface ItineraryDetailTableViewController ()
 
@@ -32,20 +33,39 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SLCMainStoryboardLocationCellIdentifier forIndexPath:indexPath];
+    SLCLocationCell *cell = [tableView dequeueReusableCellWithIdentifier:SLCMainStoryboardLocationCellIdentifier forIndexPath:indexPath];
     
     ItineraryDay *day = self.itinerary.days[(NSUInteger)indexPath.section];
     Location *location = day.locations[(NSUInteger)indexPath.row];
     
-    cell.textLabel.text = location.locationName;
-    NSString *locationTimeDescription = [location subtitle];
-    cell.detailTextLabel.text = locationTimeDescription;
+    cell.locationNameLabel.text = location.locationName;
+    cell.bestTimeToGoLabel.text = [location subtitle];
+    cell.avgTimeSpentLabel.text = [NSString stringWithFormat:@"%@ hrs", location.averageTimeSpent];
+    cell.thumbnailView.image = [UIImage imageNamed:@"img_shop"];
+    
+    // Set background color
+    cell.backgroundColor = [UIColor clearColor];
+    cell.contentView.backgroundColor = [UIColor clearColor];
+    
+    UIView *backgroundView = [[UIView alloc] initWithFrame:cell.bounds];
+    backgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.2];
+    cell.backgroundView = backgroundView;
     
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Day %ld", section + 1];
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 20)];
+    view.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.6];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 50, 20)];
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont appBookFontOfSize:12];
+    label.text = [NSString stringWithFormat:@"Day %ld", section + 1];
+    label.backgroundColor = [UIColor clearColor];
+    
+    [view addSubview:label];
+    return view;
 }
 
 #pragma mark - Navigation

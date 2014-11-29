@@ -24,6 +24,9 @@
 		1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */; };
 		1E72D3111A2A3FC200D57573 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E72D3101A2A3FC200D57573 /* TabBarController.m */; };
 		1E72D3161A2A4F0600D57573 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E72D3151A2A4F0600D57573 /* UIColor+Hex.m */; };
+		1E72D3191A2A648800D57573 /* SLCLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E72D3181A2A648800D57573 /* SLCLocationCell.m */; };
+		1E72D31B1A2A668E00D57573 /* img_shop in Resources */ = {isa = PBXBuildFile; fileRef = 1E72D31A1A2A668E00D57573 /* img_shop */; };
+		1E72D31D1A2A699300D57573 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E72D31C1A2A699300D57573 /* QuartzCore.framework */; };
 		1E9D16DF1A2A32CE00824128 /* SLCTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D16DE1A2A32CE00824128 /* SLCTabBarButton.m */; };
 		1EBC4AC11A29F172006A68AE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBC4AC01A29F172006A68AE /* CoreLocation.framework */; };
 		1EDDBA2B1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDDBA2A1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m */; };
@@ -84,6 +87,10 @@
 		1E72D3101A2A3FC200D57573 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		1E72D3141A2A4F0600D57573 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		1E72D3151A2A4F0600D57573 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		1E72D3171A2A648800D57573 /* SLCLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCLocationCell.h; sourceTree = "<group>"; };
+		1E72D3181A2A648800D57573 /* SLCLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCLocationCell.m; sourceTree = "<group>"; };
+		1E72D31A1A2A668E00D57573 /* img_shop */ = {isa = PBXFileReference; lastKnownFileType = file; path = img_shop; sourceTree = "<group>"; };
+		1E72D31C1A2A699300D57573 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1E9D16DD1A2A32CE00824128 /* SLCTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCTabBarButton.h; sourceTree = "<group>"; };
 		1E9D16DE1A2A32CE00824128 /* SLCTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCTabBarButton.m; sourceTree = "<group>"; };
 		1EBC4AC01A29F172006A68AE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -131,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E72D31D1A2A699300D57573 /* QuartzCore.framework in Frameworks */,
 				1EBC4AC11A29F172006A68AE /* CoreLocation.framework in Frameworks */,
 				1EDDBA331A29ECCA0023DB4F /* MapKit.framework in Frameworks */,
 				14921CD57D235940493F0923 /* Foundation.framework in Frameworks */,
@@ -144,6 +152,7 @@
 		16A5DFCAA49C5E1F8F671A0C /* Other-Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1E72D31A1A2A668E00D57573 /* img_shop */,
 				D2B592251A29CDD1002F3167 /* countries.plist */,
 				BAEBA3582D672BFFA5368FCA /* Info.plist */,
 				E27C8AD91FC22B4DD3EA7197 /* Slocan-Prefix.pch */,
@@ -300,6 +309,8 @@
 				01A2FF3D1A2A1DCB00E4E120 /* SLCToolbarView.m */,
 				1E9D16DD1A2A32CE00824128 /* SLCTabBarButton.h */,
 				1E9D16DE1A2A32CE00824128 /* SLCTabBarButton.m */,
+				1E72D3171A2A648800D57573 /* SLCLocationCell.h */,
+				1E72D3181A2A648800D57573 /* SLCLocationCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -345,6 +356,7 @@
 		C96EB481FC25CF3DB3BCA668 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E72D31C1A2A699300D57573 /* QuartzCore.framework */,
 				1EBC4AC01A29F172006A68AE /* CoreLocation.framework */,
 				1EDDBA321A29ECCA0023DB4F /* MapKit.framework */,
 				73A4530757BDF3B3346603E8 /* iOS */,
@@ -468,6 +480,7 @@
 				1E0583141A2A0BE000500758 /* NeutraText-Bold.otf in Resources */,
 				1E0583171A2A0BE000500758 /* NeutraText-Light.otf in Resources */,
 				D2B5922F1A29DC2E002F3167 /* SLCPickerToolbar.xib in Resources */,
+				1E72D31B1A2A668E00D57573 /* img_shop in Resources */,
 				1E0583181A2A0BE000500758 /* NeutraText-LightSC.otf in Resources */,
 				F18E3F5CC072FBE42FC80BB9 /* Images.xcassets in Resources */,
 				1E0583151A2A0BE000500758 /* NeutraText-Book.otf in Resources */,
@@ -571,6 +584,7 @@
 				D2B5922D1A29DC0A002F3167 /* SLCPickerToolbar.m in Sources */,
 				2CBA6C04240E96E0D1E68391 /* AppDelegate.m in Sources */,
 				01CB00421A29F5160017A3C9 /* PhotoDetailsViewController.m in Sources */,
+				1E72D3191A2A648800D57573 /* SLCLocationCell.m in Sources */,
 				FED6FD80C1FB449BBCA6E420 /* Main.storyboard in Sources */,
 				1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */,
 				1EDDBA311A29DED90023DB4F /* ItineraryDetailMapViewController.m in Sources */,

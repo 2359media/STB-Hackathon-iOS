@@ -22,7 +22,7 @@
 }
 
 - (NSString *)subtitle {
-    return [NSString stringWithFormat:@"Avg Time Spent: %@ hrs; Best Time To Go: %@", self.averageTimeSpent, NSStringFromSLCTimeToGo(self.bestTimeToGo)];
+    return [NSString stringWithFormat:@"Best time to go: %@", NSStringFromSLCTimeToGo(self.bestTimeToGo)];
 }
 
 @end
