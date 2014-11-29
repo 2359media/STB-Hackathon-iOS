@@ -311,9 +311,11 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-z4-ssM" userLabel="Nope Button">
                                         <rect key="frame" x="40" y="17" width="44" height="45"/>
-                                        <state key="normal" image="nope">
+                                        <state key="normal" image="unlike">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="unlike_selected"/>
+                                        <state key="highlighted" image="unlike_selected"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcy-I4-U5E" userLabel="Close Button">
                                         <rect key="frame" x="143" y="23" width="34" height="34"/>
@@ -321,9 +323,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua8-He-q1n" userLabel="Like Button">
                                         <rect key="frame" x="235" y="17" width="45" height="45"/>
-                                        <state key="normal" image="liked">
+                                        <state key="normal" image="like">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="selected" image="like_selected"/>
+                                        <state key="highlighted" image="like_selected"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -593,8 +597,11 @@
         <image name="TabBarIconScheduleNormal" width="24" height="23"/>
         <image name="TabBarIconScheduleSelected" width="24" height="23"/>
         <image name="close" width="34" height="34"/>
-        <image name="liked" width="45" height="45"/>
-        <image name="nope" width="44" height="45"/>
+        <image name="logo" width="107" height="87"/>
+        <image name="like" width="45" height="45"/>
+        <image name="like_selected" width="50" height="50"/>
+        <image name="unlike" width="44" height="45"/>
+        <image name="unlike_selected" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
