@@ -193,6 +193,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     
     if (self.informationButton == nil) {
         self.informationButton = [self constructInformationButton];
+        self.informationButton.center = CGPointMake(CGRectGetWidth(self.view.frame)/2, self.nopeButton.center.y);
     }
     
     if (self.likeButton == nil) {
@@ -275,11 +276,11 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 }
 
 - (UIButton *)constructInformationButton {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *image = [UIImage imageNamed:@"info"];
+    
+    button.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
     [button setImage:image forState:UIControlStateNormal];
-    button.center = CGPointMake(CGRectGetWidth(self.view.frame)/2,
-                                CGRectGetMaxY(self.backCardView.frame) + ChoosePhotoButtonVerticalPadding + image.size.height/2);
     
     [button addTarget:self action:@selector(showInformation) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
