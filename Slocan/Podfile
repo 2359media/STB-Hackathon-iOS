@@ -6,6 +6,7 @@ target 'Slocan' do
   pod 'AFNetworking'
   pod 'SVProgressHUD'
   pod 'MHCustomTabBarController'
+  pod 'SVBlurView'
 end
 
 target 'UnitTests' do

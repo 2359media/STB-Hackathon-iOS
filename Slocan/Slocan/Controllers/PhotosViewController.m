@@ -15,6 +15,7 @@
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import <AFNetworking/AFNetworking.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <SVBlurView/SVBlurView.h>
 
 #import "SlocanPhotoView.h"
 
@@ -23,10 +24,10 @@ NSString *const SlocanVotesPath = @"/api/v1/votes";
 
 NSString *const SlocanCurrentPhotoPage = @"SlocanCurrentPhotoPage";
 
-static const CGFloat ChoosePhotoButtonHorizontalPadding = 80.f;
+static const CGFloat ChoosePhotoButtonHorizontalPadding = 50.f;
 static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 
-@interface PhotosViewController () <SignupDelegate, MDCSwipeToChooseDelegate>
+@interface PhotosViewController () <SignupDelegate, MDCSwipeToChooseDelegate, PhotoDetailsViewDelegate>
 
 @property (nonatomic) NSInteger currentPage;
 
@@ -41,6 +42,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 @property (nonatomic, strong) NSMutableArray *photos;
 
 @property (nonatomic, strong) UINavigationController *signUpNavigationController;
+@property (nonatomic, strong) SVBlurView *blurView;
 
 @end
 
@@ -316,13 +318,32 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     return button;
 }
 
-#pragma mark Control Events
+#pragma mark - Control Events
 
 - (void)showInformation {
-    PhotoDetailsViewController *photoDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:SLCMainStoryboardPhotoDetailsViewControllerIdentifier];
-    photoDetailsViewController.photo = self.currentPhoto;
+    SVBlurView *blurView = [[SVBlurView alloc] initWithFrame:self.parentViewController.view.bounds];
+    [self.parentViewController.view addSubview:blurView];
     
-    [self presentViewController:photoDetailsViewController animated:YES completion:nil];
+    self.blurView = blurView;
+    
+    PhotoDetailsViewController *photoDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:SLCMainStoryboardPhotoDetailsViewControllerIdentifier];
+    photoDetailsViewController.delegate = self;
+    photoDetailsViewController.photo = self.currentPhoto;
+    photoDetailsViewController.view.alpha = 0.f;
+    
+    [self.parentViewController addChildViewController:photoDetailsViewController];
+    [self.parentViewController.view addSubview:photoDetailsViewController.view];
+    
+    [UIView animateWithDuration:0.8 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        photoDetailsViewController.view.alpha = 1.f;
+    } completion:^(BOOL finished) {
+        [photoDetailsViewController didMoveToParentViewController:self.parentViewController];
+    }];
+}
+
+- (void)photoDetailsViewDidClose {
+    [self.blurView removeFromSuperview];
+    self.blurView = nil;
 }
 
 // Programmatically "nopes" the front card view.
