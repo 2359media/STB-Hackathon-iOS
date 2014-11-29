@@ -40,6 +40,7 @@
 		D2B5922D1A29DC0A002F3167 /* SLCPickerToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B5922C1A29DC0A002F3167 /* SLCPickerToolbar.m */; };
 		D2B5922F1A29DC2E002F3167 /* SLCPickerToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2B5922E1A29DC2E002F3167 /* SLCPickerToolbar.xib */; };
 		D2B592331A29EF8B002F3167 /* SelectInterestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B592321A29EF8B002F3167 /* SelectInterestViewController.m */; };
+		D2BE21CB1A2A59CB007EAEBF /* Onboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2BE21CA1A2A59CB007EAEBF /* Onboard.storyboard */; };
 		F18E3F5CC072FBE42FC80BB9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63D5B58D3DCB33F6FBD69EB /* Images.xcassets */; };
 		FED6FD80C1FB449BBCA6E420 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 467C8186F4D0BB9721766B94 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -116,6 +117,7 @@
 		D2B5922E1A29DC2E002F3167 /* SLCPickerToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLCPickerToolbar.xib; sourceTree = "<group>"; };
 		D2B592311A29EF8B002F3167 /* SelectInterestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectInterestViewController.h; sourceTree = "<group>"; };
 		D2B592321A29EF8B002F3167 /* SelectInterestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectInterestViewController.m; sourceTree = "<group>"; };
+		D2BE21CA1A2A59CB007EAEBF /* Onboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboard.storyboard; sourceTree = "<group>"; };
 		E27C8AD91FC22B4DD3EA7197 /* Slocan-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Slocan-Prefix.pch"; sourceTree = "<group>"; };
 		F6EA00E6A1E9177F17997B73 /* AppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FECC39C85F25CBC35E88028A /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				467C8186F4D0BB9721766B94 /* Main.storyboard */,
+				D2BE21CA1A2A59CB007EAEBF /* Onboard.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				F18E3F5CC072FBE42FC80BB9 /* Images.xcassets in Resources */,
 				1E0583151A2A0BE000500758 /* NeutraText-Book.otf in Resources */,
 				D2B592261A29CDD1002F3167 /* countries.plist in Resources */,
+				D2BE21CB1A2A59CB007EAEBF /* Onboard.storyboard in Resources */,
 				01A2FF401A2A3D3100E4E120 /* Bender-Inline.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

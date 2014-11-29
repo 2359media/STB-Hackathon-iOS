@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fho-bZ-zHJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fho-bZ-zHJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="NeutraText-Book.otf">
@@ -11,72 +10,6 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Register View Controller-->
-        <scene sceneID="bp3-4j-NWS">
-            <objects>
-                <viewController storyboardIdentifier="registerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="141-W4-5UQ" customClass="RegisterViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XrY-DL-ukp"/>
-                        <viewControllerLayoutGuide type="bottom" id="Pdm-HO-1ab"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="n50-iL-ZwH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aBh-Ks-c7b">
-                                <rect key="frame" x="36" y="144" width="248" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <outlet property="delegate" destination="141-W4-5UQ" id="ZkW-vv-HOb"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QcL-Iq-ptQ">
-                                <rect key="frame" x="36" y="235" width="248" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="141-W4-5UQ" id="ocg-bq-JBp"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How old are you?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNA-dI-pm9">
-                                <rect key="frame" x="36" y="104" width="248" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where do you come from?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oug-W8-qD3">
-                                <rect key="frame" x="36" y="194" width="248" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="aBh-Ks-c7b" secondAttribute="trailing" constant="20" id="12F-zv-NOh"/>
-                            <constraint firstItem="QcL-Iq-ptQ" firstAttribute="leading" secondItem="n50-iL-ZwH" secondAttribute="leadingMargin" constant="20" id="6fS-2r-i16"/>
-                            <constraint firstItem="aBh-Ks-c7b" firstAttribute="top" secondItem="UNA-dI-pm9" secondAttribute="bottom" constant="20" id="ALp-DD-ehb"/>
-                            <constraint firstItem="Oug-W8-qD3" firstAttribute="top" secondItem="aBh-Ks-c7b" secondAttribute="bottom" constant="20" id="Hn5-1L-wCz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Oug-W8-qD3" secondAttribute="trailing" constant="20" id="SqO-Wh-FxN"/>
-                            <constraint firstItem="Oug-W8-qD3" firstAttribute="leading" secondItem="n50-iL-ZwH" secondAttribute="leadingMargin" constant="20" id="bRf-Jh-4Lx"/>
-                            <constraint firstItem="UNA-dI-pm9" firstAttribute="leading" secondItem="n50-iL-ZwH" secondAttribute="leadingMargin" constant="20" id="e2m-Dh-IYR"/>
-                            <constraint firstItem="UNA-dI-pm9" firstAttribute="top" secondItem="XrY-DL-ukp" secondAttribute="bottom" constant="84" id="fYV-Vu-95S"/>
-                            <constraint firstItem="QcL-Iq-ptQ" firstAttribute="top" secondItem="Oug-W8-qD3" secondAttribute="bottom" constant="20" id="qky-VF-upX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="UNA-dI-pm9" secondAttribute="trailing" constant="20" id="sTe-dP-Vmd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QcL-Iq-ptQ" secondAttribute="trailing" constant="20" id="xKX-FT-RlY"/>
-                            <constraint firstItem="aBh-Ks-c7b" firstAttribute="leading" secondItem="n50-iL-ZwH" secondAttribute="leadingMargin" constant="20" id="zkT-NJ-3FS"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="ageTextField" destination="aBh-Ks-c7b" id="IXq-gm-WiG"/>
-                        <outlet property="countryTextField" destination="QcL-Iq-ptQ" id="xxa-Ft-zzY"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Th9-tX-rCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-479" y="318"/>
-        </scene>
         <!--Slocan-->
         <scene sceneID="EDE-hD-dDe">
             <objects>
@@ -94,103 +27,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rl4-Kj-kqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1180" y="-14"/>
-        </scene>
-        <!--Pick My Interests-->
-        <scene sceneID="wRw-jp-hGf">
-            <objects>
-                <viewController storyboardIdentifier="SelectInterestViewController" id="uM4-yf-Kxt" customClass="SelectInterestViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yr6-4Y-dHS"/>
-                        <viewControllerLayoutGuide type="bottom" id="9mZ-qe-hJ8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="b00-VX-PLP">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNd-Nw-ZF7">
-                                <rect key="frame" x="16" y="356" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="irc-U8-ErL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Srb-X5-zbF">
-                                <rect key="frame" x="168" y="356" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="XhW-Tm-cAr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1r-eK-I0Z">
-                                <rect key="frame" x="16" y="58" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="kUR-XT-xz2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kw8-gx-Ai9">
-                                <rect key="frame" x="168" y="58" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="QV2-O2-mMj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkw-Z2-R3J">
-                                <rect key="frame" x="16" y="207" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="A8z-AE-FyS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRO-I7-U80">
-                                <rect key="frame" x="168" y="207" width="136" height="141"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="Bm1-Rk-otQ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Pick My Interests" id="fa0-Ik-xIh">
-                        <barButtonItem key="rightBarButtonItem" title="Skip" id="6Ge-b8-Uur">
-                            <connections>
-                                <action selector="skipSelectInterest:" destination="uM4-yf-Kxt" id="5Kn-dV-Gyk"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="artsButton" destination="d1r-eK-I0Z" id="Gql-hA-Ejd"/>
-                        <outlet property="entertainmentButton" destination="kw8-gx-Ai9" id="vbK-dS-xcE"/>
-                        <outlet property="eventsButton" destination="tkw-Z2-R3J" id="8fw-6x-Lq9"/>
-                        <outlet property="foodButton" destination="BRO-I7-U80" id="NIC-Py-Qlh"/>
-                        <outlet property="outdoorButton" destination="YNd-Nw-ZF7" id="VUi-tg-xix"/>
-                        <outlet property="shopButton" destination="Srb-X5-zbF" id="aB3-4D-55e"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgr-hX-GSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="17" y="310"/>
         </scene>
         <!--Itineraries-->
         <scene sceneID="SoU-mT-ai5">
@@ -255,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="-44" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Venue name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8j-kV-4an">
-                                        <rect key="frame" x="10" y="74" width="300" height="20.5"/>
+                                        <rect key="frame" x="10" y="74" width="300" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
