@@ -156,7 +156,7 @@
                                 <rect key="frame" x="0.0" y="468" width="320" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-z4-ssM" userLabel="Nope Button">
-                                        <rect key="frame" x="80" y="27" width="44" height="45"/>
+                                        <rect key="frame" x="50" y="27" width="44" height="45"/>
                                         <state key="normal" image="unlike">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -168,7 +168,7 @@
                                         <state key="normal" image="close"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua8-He-q1n" userLabel="Like Button">
-                                        <rect key="frame" x="195" y="27" width="45" height="45"/>
+                                        <rect key="frame" x="225" y="27" width="45" height="45"/>
                                         <state key="normal" image="like">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -180,10 +180,10 @@
                                     <constraint firstAttribute="centerY" secondItem="b4c-z4-ssM" secondAttribute="centerY" id="R9w-tl-StV"/>
                                     <constraint firstAttribute="centerX" secondItem="tcy-I4-U5E" secondAttribute="centerX" id="Rcr-eG-vhN"/>
                                     <constraint firstAttribute="centerY" secondItem="ua8-He-q1n" secondAttribute="centerY" id="dMs-Hk-Ila"/>
-                                    <constraint firstItem="b4c-z4-ssM" firstAttribute="leading" secondItem="5vQ-xY-UiE" secondAttribute="leading" constant="80" id="hbI-E2-Krj"/>
+                                    <constraint firstItem="b4c-z4-ssM" firstAttribute="leading" secondItem="5vQ-xY-UiE" secondAttribute="leading" constant="50" id="hbI-E2-Krj"/>
                                     <constraint firstAttribute="centerY" secondItem="tcy-I4-U5E" secondAttribute="centerY" id="jYb-pf-Aqy"/>
                                     <constraint firstAttribute="height" constant="100" id="um8-w7-BTF"/>
-                                    <constraint firstAttribute="trailing" secondItem="ua8-He-q1n" secondAttribute="trailing" constant="80" id="wjH-nl-S3J"/>
+                                    <constraint firstAttribute="trailing" secondItem="ua8-He-q1n" secondAttribute="trailing" constant="50" id="wjH-nl-S3J"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="closeButton" destination="tcy-I4-U5E" id="QDd-Du-eDa"/>
@@ -192,7 +192,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="5vQ-xY-UiE" secondAttribute="trailing" id="8Sx-CY-Pbv"/>
                             <constraint firstItem="FcP-H5-qjH" firstAttribute="top" secondItem="5vQ-xY-UiE" secondAttribute="bottom" id="HEW-Qi-5KX"/>
