@@ -4,6 +4,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="NeutraText-Book.otf">
+            <string>NeutraText-Book</string>
+            <string>NeutraText-Book</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Register View Controller-->
         <scene sceneID="bp3-4j-NWS">
@@ -295,7 +301,7 @@
                                 <rect key="frame" x="0.0" y="488" width="320" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4c-z4-ssM" userLabel="Nope Button">
-                                        <rect key="frame" x="40" y="15" width="50" height="50"/>
+                                        <rect key="frame" x="40" y="17" width="44" height="45"/>
                                         <state key="normal" image="nope">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -305,7 +311,7 @@
                                         <state key="normal" title="Close"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua8-He-q1n" userLabel="Like Button">
-                                        <rect key="frame" x="230" y="15" width="50" height="50"/>
+                                        <rect key="frame" x="235" y="17.5" width="45" height="45"/>
                                         <state key="normal" image="liked">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -485,26 +491,35 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3K-ea-QOA" userLabel="Custom Tab Bar">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qf-k0-BUs">
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qf-k0-BUs" customClass="SLCTabBarButton">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
-                                        <color key="backgroundColor" red="0.99607843139999996" green="0.92941176469999998" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Attractions"/>
+                                        <fontDescription key="fontDescription" name="NeutraText-Book" family="Neutra Text" pointSize="18"/>
+                                        <state key="normal" title="Attractions" image="TabBarIconAttractionNormal" backgroundImage="TabBarBackgroundNormal">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="selected" image="TabBarIconAttractionSelected" backgroundImage="TabBarBackgroundSelected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <segue destination="OCg-pL-pxA" kind="custom" identifier="viewController1" customClass="MHTabBarSegue" id="OPG-i6-h1N"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bof-to-srH">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bof-to-srH" customClass="SLCTabBarButton">
                                         <rect key="frame" x="160" y="0.0" width="160" height="44"/>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.58039215690000001" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Schedule">
+                                        <fontDescription key="fontDescription" name="NeutraText-Book" family="Neutra Text" pointSize="18"/>
+                                        <state key="normal" title="Schedule" image="TabBarIconScheduleNormal" backgroundImage="TabBarBackgroundNormal">
+                                            <color key="titleColor" white="1" alpha="0.20000000000000001" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="TabBarIconScheduleSelected" backgroundImage="TabBarBackgroundSelected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <segue destination="yiw-uw-aJl" kind="custom" identifier="viewController2" customClass="MHTabBarSegue" id="zJk-92-w3Y"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="6Qf-k0-BUs" secondAttribute="bottom" id="2am-Gb-620"/>
                                     <constraint firstItem="6Qf-k0-BUs" firstAttribute="width" secondItem="bof-to-srH" secondAttribute="width" priority="750" id="3By-Je-GLW"/>
@@ -561,8 +576,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="liked" width="50" height="50"/>
-        <image name="nope" width="50" height="50"/>
+        <image name="TabBarBackgroundNormal" width="160" height="44"/>
+        <image name="TabBarBackgroundSelected" width="160" height="44"/>
+        <image name="TabBarIconAttractionNormal" width="24" height="23"/>
+        <image name="TabBarIconAttractionSelected" width="24" height="23"/>
+        <image name="TabBarIconScheduleNormal" width="24" height="23"/>
+        <image name="TabBarIconScheduleSelected" width="24" height="23"/>
+        <image name="liked" width="45" height="45"/>
+        <image name="nope" width="44" height="45"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
