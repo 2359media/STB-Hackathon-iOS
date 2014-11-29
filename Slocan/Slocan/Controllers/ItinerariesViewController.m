@@ -13,7 +13,7 @@
 
 @interface ItinerariesViewController ()
 
-@property (nonatomic) NSArray *itineraries;
+@property (nonatomic) NSMutableArray *itineraries;
 
 @end
 
@@ -31,7 +31,7 @@
         [itineraries addObject:[self fakeItinerary]];
     }
     
-    self.itineraries = [itineraries copy];
+    self.itineraries = itineraries;
 }
 
 - (Itinerary *)fakeItinerary {
@@ -118,6 +118,8 @@
 
             // TODO: Request the server for a new itinerary
             Itinerary *newItinerary = [self fakeItinerary];
+            [self.itineraries addObject:newItinerary];
+            [self.tableView reloadData];
             [self performSegueWithIdentifier:SLCMainStoryboardCreateNewItineraryIdentifier sender:newItinerary];
             
         }]];
