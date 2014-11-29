@@ -443,11 +443,6 @@
 				CLASSPREFIX = "";
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "2359 Media Pte Ltd.";
-				TargetAttributes = {
-					A0A245F96BB28EB1343172E1 = {
-						DevelopmentTeam = 3HQ4QKMBWB;
-					};
-				};
 			};
 			buildConfigurationList = 2357D203D244129D40D439E0 /* Build configuration list for PBXProject "Slocan" */;
 			compatibilityVersion = "Xcode 3.2";
