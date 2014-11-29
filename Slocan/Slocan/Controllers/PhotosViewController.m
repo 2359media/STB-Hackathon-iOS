@@ -107,8 +107,6 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
                 
                 self.photos = [responseArray mutableCopy];
                 [self loadCards];
-            } else {
-                [self fetchPhotosAtPage:page+1];
             }
         }
         
@@ -340,6 +338,11 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
                          animations:^{
                              self.backCardView.alpha = 1.f;
                          } completion:nil];
+    }
+    
+    // Load next page.
+    if (self.frontCardView == nil && self.backCardView == nil && [self.photos count] == 0) {
+        [self fetchPhotosAtPage:self.currentPage+1];
     }
 }
 
