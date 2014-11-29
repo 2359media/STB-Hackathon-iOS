@@ -23,6 +23,8 @@
     [super viewDidLoad];
     [self createFakeData];
     
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     // Add new schedule button
     UIButton *addScheduleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [addScheduleButton addTarget:self action:@selector(createNewItinerary:) forControlEvents:UIControlEventTouchUpInside];

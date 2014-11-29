@@ -508,7 +508,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1nX-oz-gCD">
-                        <barButtonItem key="rightBarButtonItem" title="Map" id="1RX-R0-o8P">
+                        <barButtonItem key="rightBarButtonItem" image="Map" id="1RX-R0-o8P">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="switchView:" destination="H82-nd-RlZ" id="Qkp-1E-CUO"/>
                             </connections>
@@ -628,6 +629,7 @@
     </scenes>
     <resources>
         <image name="Clock" width="14" height="14"/>
+        <image name="Map" width="20" height="18"/>
         <image name="TabBarBackgroundNormal" width="160" height="44"/>
         <image name="TabBarBackgroundSelected" width="160" height="44"/>
         <image name="TabBarIconAttractionNormal" width="24" height="23"/>

@@ -38,11 +38,13 @@
 - (IBAction)switchView:(UIBarButtonItem *)sender {
     if (sender.tag == 0) {
         sender.title = NSLocalizedString(@"Table", nil);
+        sender.image = nil;
         [self showMapViewController];
         sender.tag = 1;
     }
     else if (sender.tag == 1) {
-        sender.title = NSLocalizedString(@"Map", nil);
+        sender.title = nil;
+        sender.image = [UIImage imageNamed:@"Map"];
         [self showTableViewController];
         sender.tag = 0;
     }
