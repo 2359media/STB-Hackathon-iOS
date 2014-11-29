@@ -32,18 +32,18 @@
         
     self.photoImageView.contentMode = UIViewContentModeScaleAspectFill;
     
-    self.venueNameLabel.font = [UIFont appBookFontOfSize:self.venueNameLabel.font.pointSize];
+    self.venueNameLabel.font = [UIFont appLightFontOfSize:24];
     self.venueNameLabel.textColor = [UIColor whiteColor];
     self.venueNameLabel.text = @"";
-    self.venueAddressLabel.font = [UIFont appLightFontOfSize:self.venueAddressLabel.font.pointSize];
-    self.venueAddressLabel.textColor = [UIColor whiteColor];
-    self.venueAddressLabel.text = @"";
-    self.venueTipLabel.font = [UIFont appLightFontOfSize:self.venueTipLabel.font.pointSize];
-    self.venueTipLabel.textColor = [UIColor whiteColor];
-    self.venueTipLabel.text = @"";
-    self.venueCategoryLabel.font = [UIFont appLightFontOfSize:self.venueCategoryLabel.font.pointSize];
+    self.venueCategoryLabel.font = [UIFont appBookFontOfSize:12];
     self.venueCategoryLabel.textColor = [UIColor colorWithHexString:@"#954B90"];
     self.venueCategoryLabel.text = @"";
+    self.venueAddressLabel.font = [UIFont appLightFontOfSize:12];
+    self.venueAddressLabel.textColor = [UIColor whiteColor];
+    self.venueAddressLabel.text = @"";
+    self.venueTipLabel.font = [UIFont appLightFontOfSize:18];
+    self.venueTipLabel.textColor = [UIColor whiteColor];
+    self.venueTipLabel.text = @"";
     
     self.toolbarView.delegate = self;
 }
