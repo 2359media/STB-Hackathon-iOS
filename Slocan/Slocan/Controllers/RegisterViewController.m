@@ -15,7 +15,7 @@ NSString *const SlocanAccessToken = @"SlocanAccessToken";
 @property (weak, nonatomic) IBOutlet UITextField *ageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *countryTextField;
 
-@property (copy, nonatomic) NSString *age;
+@property (nonatomic) NSInteger age;
 @property (copy, nonatomic) NSString *country;
 
 @end
@@ -36,17 +36,60 @@ NSString *const SlocanAccessToken = @"SlocanAccessToken";
 }
 
 - (void)signupAction:(id)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:@"authenticated" forKey:SlocanAccessToken];
-    
-    if ([self.delegate respondsToSelector:@selector(didSignupFrom:)]) {
-        [self.delegate didSignupFrom:self];
+    // TODO: Sign-up and store a token or a confirmation that user has submitted age & country.
+    BOOL valid = [self validateTextField:self.ageTextField];
+    if (valid) {
+        valid = [self validateTextField:self.countryTextField];
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (valid) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"authenticated" forKey:SlocanAccessToken];
+        
+        if ([self.delegate respondsToSelector:@selector(didSignupFrom:)]) {
+            [self.delegate didSignupFrom:self];
+        }
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+- (BOOL)validateTextField:(UITextField *)textField {
+    NSString *errorMessage = @"";
+    BOOL shouldReturn = YES;
+    
+    if ([textField isEqual:self.ageTextField]) {
+        shouldReturn = ([textField.text integerValue] > 0);
+        if (!shouldReturn) {
+            errorMessage = NSLocalizedString(@"Please enter a valid age.", nil);
+        }
+        else {
+            self.age = [textField.text integerValue];
+        }
+    } else if ([textField isEqual:self.countryTextField]) {
+        shouldReturn = [textField.text length] > 0;
+        
+        if (!shouldReturn) {
+            errorMessage = NSLocalizedString(@"Please enter a valid country.", nil);
+        }
+        else {
+            self.country = textField.text;
+        }
+    }
+    
+    if (!shouldReturn) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Please enter a valid data", nil)
+                                                            message:errorMessage
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+        [alertView show];
+    }
+    
+    return shouldReturn;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    return YES;
+    return [self validateTextField:textField];
 }
 
 @end
