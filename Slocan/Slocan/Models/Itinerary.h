@@ -23,3 +23,11 @@
 @property (nonatomic) NSArray *locations;
 
 @end
+
+typedef NS_ENUM(NSUInteger, SLCItineraryDuration) {
+    SLCItineraryDurationHalfDay,
+    SLCItineraryDurationOneDay,
+    SLCItineraryDurationThreeDays,
+};
+
+NSString *NSStringFromItineraryDuration(SLCItineraryDuration duration);

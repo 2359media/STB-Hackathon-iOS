@@ -91,4 +91,27 @@
     }
 }
 
+#pragma mark - Actions
+
+- (IBAction)createNewItinerary:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Choose A Duration", nil) 
+                                                                             message:NSLocalizedString(@"How long would you plan for your next itinerary?", nil)
+                                                                       preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    NSArray *allDurations = @[ @(SLCItineraryDurationHalfDay), @(SLCItineraryDurationOneDay), @(SLCItineraryDurationThreeDays) ];
+    
+    for (NSNumber *aDuration in allDurations) {
+        SLCItineraryDuration duration = [aDuration unsignedIntegerValue];
+        NSString *durationDescription = NSStringFromItineraryDuration(duration);
+        
+        [alertController addAction:[UIAlertAction actionWithTitle:durationDescription style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            NSLog(@"You select duration %ld (%@)", duration, durationDescription);
+        }]];
+    }
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 @end

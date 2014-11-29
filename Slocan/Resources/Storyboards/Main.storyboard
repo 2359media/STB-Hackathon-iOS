@@ -136,7 +136,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Itineraries" id="jYZ-mZ-dEt">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mj9-ZV-RF7"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mj9-ZV-RF7">
+                            <connections>
+                                <action selector="createNewItinerary:" destination="BPb-SR-udA" id="9na-T0-t0a"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kgv-ND-RXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
