@@ -45,8 +45,6 @@
     self.venueCategoryLabel.text = @"";
     
     self.toolbarView.delegate = self;
-    
-    self.view.backgroundColor = [UIColor colorWithWhite:0.4f alpha:0.6f];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
