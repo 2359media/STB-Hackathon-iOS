@@ -538,6 +538,7 @@
                             <constraint firstItem="EC3-Ub-Igz" firstAttribute="leading" secondItem="nzo-Hg-Kra" secondAttribute="leading" id="soZ-sf-IEv"/>
                         </constraints>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="container" destination="EC3-Ub-Igz" id="wEi-Vc-QKg"/>
                         <outletCollection property="buttons" destination="6Qf-k0-BUs" id="oum-Vh-Wwv"/>
@@ -557,6 +558,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PNf-SI-fUV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.16470588235294117" green="0.13725490196078433" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
