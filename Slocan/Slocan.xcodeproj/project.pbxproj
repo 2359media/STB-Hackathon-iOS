@@ -203,12 +203,10 @@
 				1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */,
 				1EDDBA2C1A29DEB80023DB4F /* ItineraryDetailViewController.h */,
 				1EDDBA2D1A29DEB80023DB4F /* ItineraryDetailViewController.m */,
-				1EDE97851A29BA6200404B98 /* ItineraryDetailTableViewController.h */,
-				1EDE97861A29BA6200404B98 /* ItineraryDetailTableViewController.m */,
 				1EDDBA2F1A29DED90023DB4F /* ItineraryDetailMapViewController.h */,
 				1EDDBA301A29DED90023DB4F /* ItineraryDetailMapViewController.m */,
-				1EDE97851A29BA6200404B98 /* ItineraryDetailViewController.h */,
-				1EDE97861A29BA6200404B98 /* ItineraryDetailViewController.m */,
+				1EDE97851A29BA6200404B98 /* ItineraryDetailTableViewController.h */,
+				1EDE97861A29BA6200404B98 /* ItineraryDetailTableViewController.m */,
 				D2B592311A29EF8B002F3167 /* SelectInterestViewController.h */,
 				D2B592321A29EF8B002F3167 /* SelectInterestViewController.m */,
 			);
@@ -427,11 +425,6 @@
 				CLASSPREFIX = "";
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "2359 Media Pte Ltd.";
-				TargetAttributes = {
-					A0A245F96BB28EB1343172E1 = {
-						DevelopmentTeam = EM92EZN986;
-					};
-				};
 			};
 			buildConfigurationList = 2357D203D244129D40D439E0 /* Build configuration list for PBXProject "Slocan" */;
 			compatibilityVersion = "Xcode 3.2";
