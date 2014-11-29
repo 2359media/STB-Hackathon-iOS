@@ -11,7 +11,7 @@
 @implementation SLCTabBarButton
 
 - (UIEdgeInsets)titleEdgeInsets {
-    return UIEdgeInsetsMake(6, 14, 0, 0);
+    return UIEdgeInsetsMake(2, 14, 0, 0);
 }
 
 @end
