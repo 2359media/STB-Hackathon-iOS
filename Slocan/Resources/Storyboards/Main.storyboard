@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="d6g-Lh-BLP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fho-bZ-zHJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -186,25 +186,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kgr-hX-GSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="17" y="310"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="ZQc-ed-ATQ">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="d6g-Lh-BLP" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="wdf-JL-lkv">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="OCg-pL-pxA" kind="relationship" relationship="viewControllers" id="gkC-lN-kGY"/>
-                        <segue destination="yiw-uw-aJl" kind="relationship" relationship="viewControllers" id="TTc-76-93N"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PzC-hH-yhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="589" y="322"/>
         </scene>
         <!--Itineraries-->
         <scene sceneID="SoU-mT-ai5">
@@ -485,6 +466,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQM-Be-lzl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2199" y="658"/>
+        </scene>
+        <!--Custom Tab Bar Controller-->
+        <scene sceneID="nNE-hg-VwK">
+            <objects>
+                <viewController id="fho-bZ-zHJ" customClass="MHCustomTabBarController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WGy-E2-cZj"/>
+                        <viewControllerLayoutGuide type="bottom" id="78b-G9-0K3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nzo-Hg-Kra">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EC3-Ub-Igz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3K-ea-QOA" userLabel="Custom Tab Bar">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Qf-k0-BUs">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.92941176469999998" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Attractions"/>
+                                        <connections>
+                                            <segue destination="OCg-pL-pxA" kind="custom" identifier="viewController1" customClass="MHTabBarSegue" id="OPG-i6-h1N"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bof-to-srH">
+                                        <rect key="frame" x="160" y="0.0" width="160" height="44"/>
+                                        <color key="backgroundColor" red="0.96078431369999995" green="0.58039215690000001" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Schedule">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="yiw-uw-aJl" kind="custom" identifier="viewController2" customClass="MHTabBarSegue" id="zJk-92-w3Y"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="6Qf-k0-BUs" secondAttribute="bottom" id="2am-Gb-620"/>
+                                    <constraint firstItem="6Qf-k0-BUs" firstAttribute="width" secondItem="bof-to-srH" secondAttribute="width" priority="750" id="3By-Je-GLW"/>
+                                    <constraint firstAttribute="bottom" secondItem="bof-to-srH" secondAttribute="bottom" id="Ewi-nU-UIr"/>
+                                    <constraint firstItem="bof-to-srH" firstAttribute="leading" secondItem="6Qf-k0-BUs" secondAttribute="trailing" id="Gfo-6G-ZjS"/>
+                                    <constraint firstItem="6Qf-k0-BUs" firstAttribute="top" secondItem="Z3K-ea-QOA" secondAttribute="top" id="HwN-lq-NC5"/>
+                                    <constraint firstItem="6Qf-k0-BUs" firstAttribute="leading" secondItem="Z3K-ea-QOA" secondAttribute="leading" id="Kl1-gA-fwg"/>
+                                    <constraint firstAttribute="trailing" secondItem="bof-to-srH" secondAttribute="trailing" id="Xcf-Ry-VYB"/>
+                                    <constraint firstItem="bof-to-srH" firstAttribute="leading" secondItem="6Qf-k0-BUs" secondAttribute="trailing" id="br4-yb-Rwv"/>
+                                    <constraint firstItem="bof-to-srH" firstAttribute="top" secondItem="Z3K-ea-QOA" secondAttribute="top" id="nXt-Eu-ksV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Z3K-ea-QOA" secondAttribute="trailing" id="1Z3-PS-hUE"/>
+                            <constraint firstAttribute="trailing" secondItem="EC3-Ub-Igz" secondAttribute="trailing" id="55E-2x-GTW"/>
+                            <constraint firstItem="Z3K-ea-QOA" firstAttribute="top" secondItem="EC3-Ub-Igz" secondAttribute="bottom" id="5V2-IM-1wy"/>
+                            <constraint firstItem="EC3-Ub-Igz" firstAttribute="top" secondItem="WGy-E2-cZj" secondAttribute="bottom" constant="-20" id="F8t-if-HmV"/>
+                            <constraint firstItem="78b-G9-0K3" firstAttribute="top" secondItem="Z3K-ea-QOA" secondAttribute="bottom" id="aya-sd-jPU"/>
+                            <constraint firstItem="78b-G9-0K3" firstAttribute="top" secondItem="EC3-Ub-Igz" secondAttribute="bottom" constant="44" id="jKQ-sx-DZ7"/>
+                            <constraint firstItem="Z3K-ea-QOA" firstAttribute="leading" secondItem="nzo-Hg-Kra" secondAttribute="leading" id="jYI-24-tGK"/>
+                            <constraint firstItem="EC3-Ub-Igz" firstAttribute="leading" secondItem="nzo-Hg-Kra" secondAttribute="leading" id="soZ-sf-IEv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="container" destination="EC3-Ub-Igz" id="wEi-Vc-QKg"/>
+                        <outletCollection property="buttons" destination="6Qf-k0-BUs" id="oum-Vh-Wwv"/>
+                        <outletCollection property="buttons" destination="bof-to-srH" id="PqG-PB-mEB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pHZ-Ry-y9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="583" y="310"/>
         </scene>
         <!--Itineraries-->
         <scene sceneID="E7l-By-CAP">
