@@ -16,6 +16,7 @@
 #import "SlocanPhotoView.h"
 
 NSString *const SlocanPhotosPath = @"/api/v1/photos";
+NSString *const SlocanVotesPath = @"/api/v1/votes";
 
 static const CGFloat ChoosePhotoButtonHorizontalPadding = 80.f;
 static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
@@ -52,7 +53,9 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     if ([accessToken length] == 0) {
         [self showSignUp];
     } else {
-        [self fetchPhotosAtPage:1];
+        if ([self.photos count] == 0) {
+            [self fetchPhotosAtPage:1];
+        }
     }
 }
 
@@ -73,6 +76,8 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 - (void)fetchPhotosAtPage:(NSInteger)page {
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading...", nil) maskType:SVProgressHUDMaskTypeClear];
     
+    // User never saved its user_id, we assume this is only happening on development device.
+    // Set it to 1.
     NSInteger userId = [[NSUserDefaults standardUserDefaults] integerForKey:SlocanUserID];
     if (userId == 0) {
         userId = 1;
@@ -101,6 +106,31 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [SVProgressHUD dismiss];
         
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
+}
+
+- (void)votePhotoWithID:(NSInteger)photoId asLiked:(BOOL)liked {
+    // User never saved its user_id, we assume this is only happening on development device.
+    // Set it to 1.
+    NSInteger userId = [[NSUserDefaults standardUserDefaults] integerForKey:SlocanUserID];
+    if (userId == 0) {
+        userId = 1;
+    }
+    
+    NSDictionary *parameters = @{
+                                 @"photo_id": @(photoId),
+                                 @"user_id": @(userId),
+                                 @"liked": @(liked)
+                               };
+    
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:SlocanBaseURL]];
+    [sessionManager POST:SlocanVotesPath parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"%@", responseObject);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
         }
@@ -273,13 +303,17 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 }
 
 // This is called then a user swipes the view fully left or right.
-- (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
+- (void)view:(SlocanPhotoView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
     // MDCSwipeToChooseView shows "NOPE" on swipes to the left,
     // and "LIKED" on swipes to the right.
     if (direction == MDCSwipeDirectionLeft) {
         NSLog(@"You noped %@.", self.currentPhoto[@"url"]);
+        
+        [self votePhotoWithID:[self.currentPhoto[@"id"] integerValue] asLiked:NO];
     } else {
         NSLog(@"You liked %@.", self.currentPhoto[@"url"]);
+        
+        [self votePhotoWithID:[self.currentPhoto[@"id"] integerValue] asLiked:YES];
     }
 
     // MDCSwipeToChooseView removes the view from the view hierarchy

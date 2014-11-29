@@ -13,3 +13,4 @@ extern NSString *const SlocanBaseURL;
 
 extern NSString *const SlocanUserPath;
 extern NSString *const SlocanPhotosPath;
+extern NSString *const SlocanVotesPath;
