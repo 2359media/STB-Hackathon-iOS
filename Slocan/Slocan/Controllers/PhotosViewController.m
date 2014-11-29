@@ -308,11 +308,10 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 #pragma mark Control Events
 
 - (void)showInformation {
-    UINavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:SLCMainStoryboardPhotoDetailsNavigationControllerIdentifier];
-    PhotoDetailsViewController *photoDetailsViewController = (PhotoDetailsViewController *)[[navigationController childViewControllers] firstObject];
+    PhotoDetailsViewController *photoDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:SLCMainStoryboardPhotoDetailsViewControllerIdentifier];
     photoDetailsViewController.photo = self.currentPhoto;
     
-    [self presentViewController:navigationController animated:YES completion:nil];
+    [self presentViewController:photoDetailsViewController animated:YES completion:nil];
 }
 
 // Programmatically "nopes" the front card view.

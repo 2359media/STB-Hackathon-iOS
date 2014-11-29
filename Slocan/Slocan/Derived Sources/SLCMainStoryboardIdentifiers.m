@@ -13,7 +13,6 @@ NSString *const SLCMainStoryboardItineraryDetailMapViewControllerIdentifier = @"
 NSString *const SLCMainStoryboardItineraryDetailTableViewControllerIdentifier = @"ItineraryDetailTableViewController";
 NSString *const SLCMainStoryboardLocationCellIdentifier = @"LocationCell";
 NSString *const SLCMainStoryboardName = @"Main";
-NSString *const SLCMainStoryboardPhotoDetailsNavigationControllerIdentifier = @"photoDetailsNavigationController";
 NSString *const SLCMainStoryboardPhotoDetailsViewControllerIdentifier = @"photoDetailsViewController";
 NSString *const SLCMainStoryboardPhotosViewControllerIdentifier = @"photosViewController";
 NSString *const SLCMainStoryboardRegisterViewControllerIdentifier = @"registerViewController";

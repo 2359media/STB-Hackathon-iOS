@@ -9,15 +9,17 @@
 #import "PhotoDetailsViewController.h"
 
 #import <AFNetworking/UIImageView+AFNetworking.h>
-#import <AXRatingView/AXRatingView.h>
+#import "UIFont+AppFonts.h"
 
-@interface PhotoDetailsViewController ()
+#import "SLCToolbarView.h"
+
+@interface PhotoDetailsViewController () <SLCToolbarViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *venueNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *venueAddressLabel;
-@property (weak, nonatomic) IBOutlet AXRatingView *venueRatingView;
 @property (weak, nonatomic) IBOutlet UILabel *venueTipLabel;
+@property (weak, nonatomic) IBOutlet SLCToolbarView *toolbarView;
 
 @end
 
@@ -26,16 +28,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)];
-    
     self.photoImageView.contentMode = UIViewContentModeScaleAspectFill;
     
+    self.venueNameLabel.font = [UIFont appBookFontOfSize:self.venueNameLabel.font.pointSize];
     self.venueNameLabel.text = @"";
+    self.venueAddressLabel.font = [UIFont appLightFontOfSize:self.venueAddressLabel.font.pointSize];
     self.venueAddressLabel.text = @"";
+    self.venueTipLabel.font = [UIFont appLightFontOfSize:self.venueTipLabel.font.pointSize];
     self.venueTipLabel.text = @"";
     
-    self.venueRatingView.hidden = YES;
-    self.venueRatingView.value = 0.f;
+    self.toolbarView.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -46,12 +48,6 @@
         
         self.venueNameLabel.text = [self.photo valueForKeyPath:@"venue.name"];
         self.venueAddressLabel.text = [self.photo valueForKeyPath:@"venue.address_blob"];
-        
-        float ratingValue = [[self.photo valueForKeyPath:@"venue.rating"] floatValue];
-        float normalizedValue = (ratingValue * 0.1f) * 5.f;
-        self.venueRatingView.hidden = NO;
-        self.venueRatingView.value = normalizedValue;
-        
         self.venueTipLabel.text = [self.photo valueForKeyPath:@"venue.tip"];
     }
 }
@@ -60,8 +56,16 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)done:(id)sender {
+- (void)toolbarViewDidClose:(SLCToolbarView *)buttonView {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)toolbarViewDidLiked:(SLCToolbarView *)buttonView {
+    
+}
+
+- (void)toolbarViewDidNoped:(SLCToolbarView *)buttonView {
+    
 }
 
 @end

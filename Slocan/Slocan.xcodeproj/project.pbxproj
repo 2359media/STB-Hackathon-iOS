@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01A2FF3E1A2A1DCB00E4E120 /* SLCToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2FF3D1A2A1DCB00E4E120 /* SLCToolbarView.m */; };
 		01CB00371A29A7870017A3C9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB00361A29A7870017A3C9 /* RegisterViewController.m */; };
 		01CB003A1A29A7A70017A3C9 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB00391A29A7A70017A3C9 /* PhotosViewController.m */; };
 		01CB003F1A29B2730017A3C9 /* SlocanPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB003E1A29B2730017A3C9 /* SlocanPhotoView.m */; };
@@ -50,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01A2FF3C1A2A1DCB00E4E120 /* SLCToolbarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCToolbarView.h; sourceTree = "<group>"; };
+		01A2FF3D1A2A1DCB00E4E120 /* SLCToolbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCToolbarView.m; sourceTree = "<group>"; };
 		01CB00351A29A7870017A3C9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		01CB00361A29A7870017A3C9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		01CB00381A29A7A70017A3C9 /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
@@ -284,6 +287,8 @@
 				01CB003E1A29B2730017A3C9 /* SlocanPhotoView.m */,
 				D2B5922B1A29DC0A002F3167 /* SLCPickerToolbar.h */,
 				D2B5922C1A29DC0A002F3167 /* SLCPickerToolbar.m */,
+				01A2FF3C1A2A1DCB00E4E120 /* SLCToolbarView.h */,
+				01A2FF3D1A2A1DCB00E4E120 /* SLCToolbarView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 				1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */,
 				1EDDBA311A29DED90023DB4F /* ItineraryDetailMapViewController.m in Sources */,
 				1EDE97871A29BA6200404B98 /* ItineraryDetailTableViewController.m in Sources */,
+				01A2FF3E1A2A1DCB00E4E120 /* SLCToolbarView.m in Sources */,
 				1EE270116CFCF666624CB22F /* LaunchScreen.xib in Sources */,
 				A571E46B97FD7D2B3A90B7D1 /* main.m in Sources */,
 			);
