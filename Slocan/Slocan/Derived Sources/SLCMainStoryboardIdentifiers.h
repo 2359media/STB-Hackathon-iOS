@@ -15,8 +15,6 @@ extern NSString *const SLCMainStoryboardLocationCellIdentifier;
 extern NSString *const SLCMainStoryboardName;
 extern NSString *const SLCMainStoryboardPhotoDetailsViewControllerIdentifier;
 extern NSString *const SLCMainStoryboardPhotosViewControllerIdentifier;
-extern NSString *const SLCMainStoryboardRegisterViewControllerIdentifier;
-extern NSString *const SLCMainStoryboardSelectInterestViewControllerIdentifier;
 extern NSString *const SLCMainStoryboardShowItineraryDetailIdentifier;
 extern NSString *const SLCMainStoryboardViewController1Identifier;
 extern NSString *const SLCMainStoryboardViewController2Identifier;
