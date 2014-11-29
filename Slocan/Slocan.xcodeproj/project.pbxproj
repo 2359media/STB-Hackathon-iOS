@@ -10,6 +10,9 @@
 		01CB00371A29A7870017A3C9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB00361A29A7870017A3C9 /* RegisterViewController.m */; };
 		01CB003A1A29A7A70017A3C9 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB00391A29A7A70017A3C9 /* PhotosViewController.m */; };
 		14921CD57D235940493F0923 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150FD1B13A579D3A80730DE7 /* Foundation.framework */; };
+		1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9C81A29A4CD00D899E6 /* Itinerary.m */; };
+		1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9CB1A29A53400D899E6 /* Location.m */; };
+		1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */; };
 		1EE270116CFCF666624CB22F /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4264A9ABD152F0E23180A270 /* LaunchScreen.xib */; };
 		2CBA6C04240E96E0D1E68391 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EA00E6A1E9177F17997B73 /* AppDelegate.m */; };
 		476A05E40130182103BD9E23 /* libPods-Slocan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740D8A220851020022F23846 /* libPods-Slocan.a */; };
@@ -35,6 +38,12 @@
 		01CB00391A29A7A70017A3C9 /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
 		01CB003B1A29AC000017A3C9 /* SignupDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupDelegate.h; sourceTree = "<group>"; };
 		150FD1B13A579D3A80730DE7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1E5EB9C71A29A4CD00D899E6 /* Itinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Itinerary.h; sourceTree = "<group>"; };
+		1E5EB9C81A29A4CD00D899E6 /* Itinerary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Itinerary.m; sourceTree = "<group>"; };
+		1E5EB9CA1A29A53400D899E6 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		1E5EB9CB1A29A53400D899E6 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		1E5EB9D01A29AF9000D899E6 /* ItinerariesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItinerariesViewController.h; sourceTree = "<group>"; };
+		1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItinerariesViewController.m; sourceTree = "<group>"; };
 		255AA729BFCC6124B38FD19F /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		3FF4FA53FC26008C75CDD6FE /* Pods-Slocan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slocan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slocan/Pods-Slocan.release.xcconfig"; sourceTree = "<group>"; };
 		4264A9ABD152F0E23180A270 /* LaunchScreen.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -114,6 +123,8 @@
 				01CB00361A29A7870017A3C9 /* RegisterViewController.m */,
 				01CB00381A29A7A70017A3C9 /* PhotosViewController.h */,
 				01CB00391A29A7A70017A3C9 /* PhotosViewController.m */,
+				1E5EB9D01A29AF9000D899E6 /* ItinerariesViewController.h */,
+				1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +184,10 @@
 		7532F923C88CF139E5A78A22 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1E5EB9C71A29A4CD00D899E6 /* Itinerary.h */,
+				1E5EB9C81A29A4CD00D899E6 /* Itinerary.m */,
+				1E5EB9CA1A29A53400D899E6 /* Location.h */,
+				1E5EB9CB1A29A53400D899E6 /* Location.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -410,8 +425,11 @@
 			files = (
 				01CB00371A29A7870017A3C9 /* RegisterViewController.m in Sources */,
 				01CB003A1A29A7A70017A3C9 /* PhotosViewController.m in Sources */,
+				1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */,
+				1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */,
 				2CBA6C04240E96E0D1E68391 /* AppDelegate.m in Sources */,
 				FED6FD80C1FB449BBCA6E420 /* Main.storyboard in Sources */,
+				1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */,
 				1EE270116CFCF666624CB22F /* LaunchScreen.xib in Sources */,
 				A571E46B97FD7D2B3A90B7D1 /* main.m in Sources */,
 			);
