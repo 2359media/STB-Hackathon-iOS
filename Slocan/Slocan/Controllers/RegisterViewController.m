@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import "SLCPickerToolbar.h"
 
 #import <AFNetworking/AFNetworking.h>
 #import <SVProgressHUD/SVProgressHUD.h>
@@ -17,7 +18,9 @@ NSString *const SlocanAccessToken = @"SlocanAccessToken";
 NSString *const SlocanBaseURL = @"http://slocan.herokuapp.com";
 NSString *const SlocanUserPath = @"/api/v1/users";
 
-@interface RegisterViewController () <UITextFieldDelegate>
+@interface RegisterViewController () <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+
+@property (nonatomic) NSArray *countries;
 
 @property (weak, nonatomic) IBOutlet UITextField *ageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *countryTextField;
@@ -36,6 +39,15 @@ NSString *const SlocanUserPath = @"/api/v1/users";
                                                                               style:UIBarButtonItemStyleDone
                                                                              target:self
                                                                              action:@selector(signupAction:)];
+    
+    UIPickerView *countryPickerView = [[UIPickerView alloc] init];
+    countryPickerView.dataSource = self;
+    countryPickerView.delegate = self;
+    
+    self.countryTextField.inputView = countryPickerView;
+    
+    NSString *countryFilePath = [[NSBundle mainBundle] pathForResource:@"countries" ofType:@"plist"];
+    self.countries = [[NSArray alloc] initWithContentsOfFile:countryFilePath];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -157,8 +169,43 @@ NSString *const SlocanUserPath = @"/api/v1/users";
     return shouldReturn;
 }
 
+#pragma mark - Textfield delegate
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     return [self validateTextField:textField];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    SLCPickerToolbar *toolbar = [[[NSBundle mainBundle] loadNibNamed:@"SLCPickerToolbar" owner:self options:nil] objectAtIndex:0];
+    
+    [toolbar.doneButton setTarget:self];
+    [toolbar.doneButton setAction:@selector(dismissCountryPicker:)];
+    
+    self.countryTextField.inputAccessoryView = toolbar;
+}
+
+- (void)dismissCountryPicker:(id)sender {
+    [self.countryTextField resignFirstResponder];
+}
+
+#pragma - PickerView delegates
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    self.countryTextField.text = self.countries[(NSUInteger)row][@"name"];
+}
+
+#pragma - PickerView datasource
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return (NSInteger)self.countries.count;
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return self.countries[(NSUInteger)row][@"name"];
 }
 
 @end

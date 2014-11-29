@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Nq6-WP-hja" customClass="SLCPickerToolbar">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+            <items>
+                <barButtonItem style="plain" systemItem="flexibleSpace" id="i3M-AU-AXH"/>
+                <barButtonItem title="Done" id="K6V-6d-yDj">
+                    <connections>
+                        <action selector="doneButton:" destination="Nq6-WP-hja" id="Eff-u5-fEN"/>
+                    </connections>
+                </barButtonItem>
+                <barButtonItem style="plain" systemItem="flexibleSpace" id="c3k-Qj-fE4"/>
+            </items>
+            <connections>
+                <outlet property="doneButton" destination="K6V-6d-yDj" id="SnK-En-DGt"/>
+            </connections>
+            <point key="canvasLocation" x="248" y="371"/>
+        </toolbar>
+    </objects>
+</document>
