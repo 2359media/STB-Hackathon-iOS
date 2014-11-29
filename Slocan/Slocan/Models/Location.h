@@ -10,7 +10,7 @@
 
 typedef NS_ENUM(NSUInteger, SLCTimeToGo) {
     SLCTimeToGoMorning,
-    SLCTimeToGoAternoon,
+    SLCTimeToGoAfternoon,
     SLCTimeToGoEvening,
 };
 
@@ -24,3 +24,5 @@ typedef NS_ENUM(NSUInteger, SLCTimeToGo) {
 @property (nonatomic) SLCTimeToGo bestTimeToGo;
 
 @end
+
+NSString *NSStringFromSLCTimeToGo(SLCTimeToGo timeToGo);

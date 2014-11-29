@@ -11,3 +11,7 @@
 @implementation Itinerary
 
 @end
+
+@implementation ItineraryDay
+
+@end

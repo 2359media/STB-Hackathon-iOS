@@ -11,3 +11,16 @@
 @implementation Location
 
 @end
+
+NSString *NSStringFromSLCTimeToGo(SLCTimeToGo timeToGo) {
+    switch (timeToGo) {
+        case SLCTimeToGoMorning:
+            return @"Morning";
+        case SLCTimeToGoAfternoon:
+            return @"Afternoon";
+        case SLCTimeToGoEvening:
+            return @"Evening";
+        default:
+            return @"Unknown";
+    }
+}

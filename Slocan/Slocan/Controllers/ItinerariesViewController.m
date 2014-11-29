@@ -7,6 +7,7 @@
 //
 
 #import "ItinerariesViewController.h"
+#import "ItineraryDetailViewController.h"
 #import "Itinerary.h"
 #import "Location.h"
 
@@ -29,6 +30,36 @@
     for (NSInteger idx = 0; idx < 5; idx++) {
         Itinerary *it = [[Itinerary alloc] init];
         it.itineraryName = [NSString stringWithFormat:@"Itinerary %ld", idx + 1];
+        
+        NSMutableArray *days = [NSMutableArray array];
+        for (NSInteger dayIdx = 0; dayIdx < 5; dayIdx++) {
+            
+            ItineraryDay *aDay = [[ItineraryDay alloc] init];
+            
+            NSMutableArray *locations = [NSMutableArray array];
+            
+            Location *morningLocation = [[Location alloc] init];
+            morningLocation.locationName = @"Morning Location";
+            morningLocation.averageTimeSpent = @3;
+            morningLocation.bestTimeToGo = SLCTimeToGoMorning;
+            [locations addObject:morningLocation];
+            
+            Location *afternoonLocation = [[Location alloc] init];
+            afternoonLocation.locationName = @"Afternoon Location";
+            afternoonLocation.averageTimeSpent = @3;
+            afternoonLocation.bestTimeToGo = SLCTimeToGoAfternoon;
+            [locations addObject:afternoonLocation];
+            
+            Location *eveningLocation = [[Location alloc] init];
+            eveningLocation.locationName = @"Evening Location";
+            eveningLocation.averageTimeSpent = @3;
+            eveningLocation.bestTimeToGo = SLCTimeToGoEvening;
+            [locations addObject:eveningLocation];
+
+            aDay.locations = [locations copy];
+            [days addObject:aDay];
+        }
+        it.days = [days copy];
         [itineraries addObject:it];
     }
     
@@ -53,7 +84,11 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    //
+    if ([segue.identifier isEqualToString:@"ShowItineraryDetail"]) {
+        ItineraryDetailViewController *itineraryDetailViewController = segue.destinationViewController;
+        NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:sender];
+        itineraryDetailViewController.itinerary = self.itineraries[(NSUInteger)selectedIndexPath.row];
+    }
 }
 
 @end

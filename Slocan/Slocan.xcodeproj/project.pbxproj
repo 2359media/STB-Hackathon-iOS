@@ -14,6 +14,7 @@
 		1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9C81A29A4CD00D899E6 /* Itinerary.m */; };
 		1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9CB1A29A53400D899E6 /* Location.m */; };
 		1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */; };
+		1EDE97871A29BA6200404B98 /* ItineraryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE97861A29BA6200404B98 /* ItineraryDetailViewController.m */; };
 		1EE270116CFCF666624CB22F /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4264A9ABD152F0E23180A270 /* LaunchScreen.xib */; };
 		2CBA6C04240E96E0D1E68391 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EA00E6A1E9177F17997B73 /* AppDelegate.m */; };
 		476A05E40130182103BD9E23 /* libPods-Slocan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740D8A220851020022F23846 /* libPods-Slocan.a */; };
@@ -48,6 +49,8 @@
 		1E5EB9CB1A29A53400D899E6 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		1E5EB9D01A29AF9000D899E6 /* ItinerariesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItinerariesViewController.h; sourceTree = "<group>"; };
 		1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItinerariesViewController.m; sourceTree = "<group>"; };
+		1EDE97851A29BA6200404B98 /* ItineraryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItineraryDetailViewController.h; sourceTree = "<group>"; };
+		1EDE97861A29BA6200404B98 /* ItineraryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItineraryDetailViewController.m; sourceTree = "<group>"; };
 		255AA729BFCC6124B38FD19F /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		3FF4FA53FC26008C75CDD6FE /* Pods-Slocan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slocan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slocan/Pods-Slocan.release.xcconfig"; sourceTree = "<group>"; };
 		4264A9ABD152F0E23180A270 /* LaunchScreen.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				01CB00391A29A7A70017A3C9 /* PhotosViewController.m */,
 				1E5EB9D01A29AF9000D899E6 /* ItinerariesViewController.h */,
 				1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */,
+				1EDE97851A29BA6200404B98 /* ItineraryDetailViewController.h */,
+				1EDE97861A29BA6200404B98 /* ItineraryDetailViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 				2CBA6C04240E96E0D1E68391 /* AppDelegate.m in Sources */,
 				FED6FD80C1FB449BBCA6E420 /* Main.storyboard in Sources */,
 				1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */,
+				1EDE97871A29BA6200404B98 /* ItineraryDetailViewController.m in Sources */,
 				1EE270116CFCF666624CB22F /* LaunchScreen.xib in Sources */,
 				A571E46B97FD7D2B3A90B7D1 /* main.m in Sources */,
 			);
