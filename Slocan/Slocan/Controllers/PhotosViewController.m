@@ -257,13 +257,16 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 
 // Create and add the "nope" button.
 - (UIButton *)constructNopeButton {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage *image = [UIImage imageNamed:@"nope"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [UIImage imageNamed:@"unlike"];
+    UIImage *selectedImage = [UIImage imageNamed:@"unlike_selected"];
     button.frame = CGRectMake(ChoosePhotoButtonHorizontalPadding,
                               CGRectGetMaxY(self.backCardView.frame) + ChoosePhotoButtonVerticalPadding,
                               image.size.width,
                               image.size.height);
     [button setImage:image forState:UIControlStateNormal];
+    [button setImage:selectedImage forState:UIControlStateHighlighted];
+    [button setImage:selectedImage forState:UIControlStateSelected];
     [button setTintColor:[UIColor colorWithRed:247.f/255.f
                                          green:91.f/255.f
                                           blue:37.f/255.f
@@ -276,7 +279,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 }
 
 - (UIButton *)constructInformationButton {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *image = [UIImage imageNamed:@"info"];
     
     button.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
@@ -289,13 +292,16 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 
 // Create and add the "like" button.
 - (UIButton *)constructLikedButton {
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIImage *image = [UIImage imageNamed:@"liked"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *image = [UIImage imageNamed:@"like"];
+    UIImage *selectedImage = [UIImage imageNamed:@"like_selected"];
     button.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChoosePhotoButtonHorizontalPadding,
                               CGRectGetMaxY(self.backCardView.frame) + ChoosePhotoButtonVerticalPadding,
                               image.size.width,
                               image.size.height);
     [button setImage:image forState:UIControlStateNormal];
+    [button setImage:selectedImage forState:UIControlStateHighlighted];
+    [button setImage:selectedImage forState:UIControlStateSelected];
     [button setTintColor:[UIColor colorWithRed:29.f/255.f
                                          green:245.f/255.f
                                           blue:106.f/255.f
