@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01CB00371A29A7870017A3C9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB00361A29A7870017A3C9 /* RegisterViewController.m */; };
+		01CB003A1A29A7A70017A3C9 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB00391A29A7A70017A3C9 /* PhotosViewController.m */; };
 		14921CD57D235940493F0923 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150FD1B13A579D3A80730DE7 /* Foundation.framework */; };
 		1EE270116CFCF666624CB22F /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4264A9ABD152F0E23180A270 /* LaunchScreen.xib */; };
 		2CBA6C04240E96E0D1E68391 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EA00E6A1E9177F17997B73 /* AppDelegate.m */; };
+		476A05E40130182103BD9E23 /* libPods-Slocan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 740D8A220851020022F23846 /* libPods-Slocan.a */; };
 		A571E46B97FD7D2B3A90B7D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A056DA2406A1AA5E287739C8 /* main.m */; };
 		F18E3F5CC072FBE42FC80BB9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63D5B58D3DCB33F6FBD69EB /* Images.xcassets */; };
 		FED6FD80C1FB449BBCA6E420 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 467C8186F4D0BB9721766B94 /* Main.storyboard */; };
@@ -26,11 +29,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01CB00351A29A7870017A3C9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		01CB00361A29A7870017A3C9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		01CB00381A29A7A70017A3C9 /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
+		01CB00391A29A7A70017A3C9 /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
+		01CB003B1A29AC000017A3C9 /* SignupDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupDelegate.h; sourceTree = "<group>"; };
 		150FD1B13A579D3A80730DE7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		255AA729BFCC6124B38FD19F /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
+		3FF4FA53FC26008C75CDD6FE /* Pods-Slocan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slocan.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slocan/Pods-Slocan.release.xcconfig"; sourceTree = "<group>"; };
 		4264A9ABD152F0E23180A270 /* LaunchScreen.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		467C8186F4D0BB9721766B94 /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		531980BE83A09E9A52EDB512 /* Pods-Slocan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slocan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slocan/Pods-Slocan.debug.xcconfig"; sourceTree = "<group>"; };
 		5F99A39345F9890EC0B4DD0B /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		740D8A220851020022F23846 /* libPods-Slocan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Slocan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A056DA2406A1AA5E287739C8 /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A0B51FB6DC4E64A083E354CE /* Slocan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slocan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4222672AFF6AD2E2C29AB72 /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -54,6 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14921CD57D235940493F0923 /* Foundation.framework in Frameworks */,
+				476A05E40130182103BD9E23 /* libPods-Slocan.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +110,10 @@
 			children = (
 				5F99A39345F9890EC0B4DD0B /* AppDelegate.h */,
 				F6EA00E6A1E9177F17997B73 /* AppDelegate.m */,
+				01CB00351A29A7870017A3C9 /* RegisterViewController.h */,
+				01CB00361A29A7870017A3C9 /* RegisterViewController.m */,
+				01CB00381A29A7A70017A3C9 /* PhotosViewController.h */,
+				01CB00391A29A7A70017A3C9 /* PhotosViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -135,6 +151,15 @@
 				16A5DFCAA49C5E1F8F671A0C /* Other-Sources */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		66D466664FA17C972E441FF1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3FF4FA53FC26008C75CDD6FE /* Pods-Slocan.release.xcconfig */,
+				531980BE83A09E9A52EDB512 /* Pods-Slocan.debug.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		73A4530757BDF3B3346603E8 /* iOS */ = {
@@ -177,6 +202,7 @@
 		A8315A9B76DE075B681FAF68 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				01CB003B1A29AC000017A3C9 /* SignupDelegate.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -189,6 +215,7 @@
 				42E24DCF2387BE586D5B1A97 /* UnitTests */,
 				C96EB481FC25CF3DB3BCA668 /* Frameworks */,
 				1C9AD3345AA68E2626F2FC76 /* Products */,
+				66D466664FA17C972E441FF1 /* Pods */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -199,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				73A4530757BDF3B3346603E8 /* iOS */,
+				740D8A220851020022F23846 /* libPods-Slocan.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -241,10 +269,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 590EFB7FED233CA0F0898FA1 /* Build configuration list for PBXNativeTarget "Slocan" */;
 			buildPhases = (
+				01C3EFC7A80D45E7491F21B9 /* Check Pods Manifest.lock */,
 				A170FBBFF4A7EF12CE5C6EB2 /* Sources */,
 				D9C9BE9BE59775F468A91BA0 /* Frameworks */,
 				0DF54CE6CEEAA74595C617A1 /* Resources */,
 				9D9D6ECBFBAAE5B09804A647 /* Warn for TODO and FIXME comments */,
+				6158BDD0B296B419AB91AF32 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -320,6 +350,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		01C3EFC7A80D45E7491F21B9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6158BDD0B296B419AB91AF32 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Slocan/Pods-Slocan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9D9D6ECBFBAAE5B09804A647 /* Warn for TODO and FIXME comments */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -348,6 +408,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01CB00371A29A7870017A3C9 /* RegisterViewController.m in Sources */,
+				01CB003A1A29A7A70017A3C9 /* PhotosViewController.m in Sources */,
 				2CBA6C04240E96E0D1E68391 /* AppDelegate.m in Sources */,
 				FED6FD80C1FB449BBCA6E420 /* Main.storyboard in Sources */,
 				1EE270116CFCF666624CB22F /* LaunchScreen.xib in Sources */,
@@ -508,6 +570,7 @@
 		};
 		BC86BDD42A63D415D3241EAF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FF4FA53FC26008C75CDD6FE /* Pods-Slocan.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
@@ -535,6 +598,7 @@
 		};
 		C5043DEFADF79A15A7427710 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 531980BE83A09E9A52EDB512 /* Pods-Slocan.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;

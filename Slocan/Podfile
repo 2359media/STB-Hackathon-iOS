@@ -2,7 +2,8 @@
 # platform :ios, '6.0'
 
 target 'Slocan' do
-
+  pod 'MDCSwipeToChoose', :git => 'https://github.com/modocache/MDCSwipeToChoose.git'
+  pod 'AFNetworking'
 end
 
 target 'UnitTests' do

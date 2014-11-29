@@ -1,7 +1,111 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Register View Controller-->
+        <scene sceneID="bp3-4j-NWS">
+            <objects>
+                <viewController storyboardIdentifier="registerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="141-W4-5UQ" customClass="RegisterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XrY-DL-ukp"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pdm-HO-1ab"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="n50-iL-ZwH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aBh-Ks-c7b">
+                                <rect key="frame" x="36" y="144" width="248" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QcL-Iq-ptQ">
+                                <rect key="frame" x="36" y="234" width="248" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How old are you?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNA-dI-pm9">
+                                <rect key="frame" x="36" y="104" width="248" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where do you come from?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oug-W8-qD3">
+                                <rect key="frame" x="36" y="194" width="248" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="aBh-Ks-c7b" secondAttribute="trailing" constant="20" id="12F-zv-NOh"/>
+                            <constraint firstItem="QcL-Iq-ptQ" firstAttribute="leading" secondItem="n50-iL-ZwH" secondAttribute="leadingMargin" constant="20" id="6fS-2r-i16"/>
+                            <constraint firstItem="aBh-Ks-c7b" firstAttribute="top" secondItem="UNA-dI-pm9" secondAttribute="bottom" constant="20" id="ALp-DD-ehb"/>
+                            <constraint firstItem="Oug-W8-qD3" firstAttribute="top" secondItem="aBh-Ks-c7b" secondAttribute="bottom" constant="20" id="Hn5-1L-wCz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oug-W8-qD3" secondAttribute="trailing" constant="20" id="SqO-Wh-FxN"/>
+                            <constraint firstItem="Oug-W8-qD3" firstAttribute="leading" secondItem="n50-iL-ZwH" secondAttribute="leadingMargin" constant="20" id="bRf-Jh-4Lx"/>
+                            <constraint firstItem="UNA-dI-pm9" firstAttribute="leading" secondItem="n50-iL-ZwH" secondAttribute="leadingMargin" constant="20" id="e2m-Dh-IYR"/>
+                            <constraint firstItem="UNA-dI-pm9" firstAttribute="top" secondItem="XrY-DL-ukp" secondAttribute="bottom" constant="84" id="fYV-Vu-95S"/>
+                            <constraint firstItem="QcL-Iq-ptQ" firstAttribute="top" secondItem="Oug-W8-qD3" secondAttribute="bottom" constant="20" id="qky-VF-upX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UNA-dI-pm9" secondAttribute="trailing" constant="20" id="sTe-dP-Vmd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QcL-Iq-ptQ" secondAttribute="trailing" constant="20" id="xKX-FT-RlY"/>
+                            <constraint firstItem="aBh-Ks-c7b" firstAttribute="leading" secondItem="n50-iL-ZwH" secondAttribute="leadingMargin" constant="20" id="zkT-NJ-3FS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ageTextField" destination="aBh-Ks-c7b" id="IXq-gm-WiG"/>
+                        <outlet property="countryTextField" destination="QcL-Iq-ptQ" id="xxa-Ft-zzY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Th9-tX-rCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.66666666666666" y="322.81333333333333"/>
+        </scene>
+        <!--Slocan-->
+        <scene sceneID="EDE-hD-dDe">
+            <objects>
+                <viewController storyboardIdentifier="photosViewController" title="Slocan" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OCg-pL-pxA" customClass="PhotosViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="auH-e2-7A2"/>
+                        <viewControllerLayoutGuide type="bottom" id="LvW-RI-N3W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Zi-hy-kkg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Slocan" id="ss5-7a-Hbd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rl4-Kj-kqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1121" y="322"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ZQc-ed-ATQ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="d6g-Lh-BLP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="wdf-JL-lkv">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="OCg-pL-pxA" kind="relationship" relationship="viewControllers" id="gkC-lN-kGY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PzC-hH-yhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="589" y="322"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
