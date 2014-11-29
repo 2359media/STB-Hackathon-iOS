@@ -11,6 +11,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 
+NSString *const SlocanUserID = @"SlocanUserID";
 NSString *const SlocanAccessToken = @"SlocanAccessToken";
 
 NSString *const SlocanBaseURL = @"http://slocan.herokuapp.com";
@@ -63,8 +64,10 @@ NSString *const SlocanUserPath = @"/api/v1/users";
             
             if ([responseObject isKindOfClass:[NSDictionary class]]) {
                 NSDictionary *responseDictionary = responseObject;
+                NSNumber *userId = responseDictionary[@"id"];
                 NSString *deviceToken = responseDictionary[@"device_id"];
                 if ([deviceToken length] > 0) {
+                    [[NSUserDefaults standardUserDefaults] setInteger:[userId integerValue] forKey:SlocanUserID];
                     [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:SlocanAccessToken];
                     
                     if ([self.delegate respondsToSelector:@selector(didSignupFrom:)]) {

@@ -11,17 +11,25 @@
 
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import <AFNetworking/AFNetworking.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #import "SlocanPhotoView.h"
+
+NSString *const SlocanPhotosPath = @"/api/v1/photos";
 
 static const CGFloat ChoosePhotoButtonHorizontalPadding = 80.f;
 static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 
 @interface PhotosViewController () <SignupDelegate, MDCSwipeToChooseDelegate>
 
+@property (nonatomic) NSInteger currentPage;
+
 @property (nonatomic, copy) NSDictionary *currentPhoto;
 @property (nonatomic, strong) SlocanPhotoView *frontCardView;
 @property (nonatomic, strong) SlocanPhotoView *backCardView;
+
+@property (nonatomic, strong) UIButton *likeButton;
+@property (nonatomic, strong) UIButton *nopeButton;
 
 @property (nonatomic, strong) NSMutableArray *photos;
 
@@ -32,23 +40,9 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.photos = [[self defaultPhotos] mutableCopy];
-    
-    // Display the first SlocanPhotoView in front. Users can swipe to indicate
-    // whether they like or dislike the photo displayed.
-    self.frontCardView = [self popPhotoViewWithFrame:[self frontCardViewFrame]];
-    [self.view addSubview:self.frontCardView];
-
-    // Display the second SlocanPhotoView in back. This view controller uses
-    // the MDCSwipeToChooseDelegate protocol methods to update the front and
-    // back views after each user swipe.
-    self.backCardView = [self popPhotoViewWithFrame:[self backCardViewFrame]];
-    [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
-
-    // Add buttons to programmatically swipe the view left or right.
-    // See the `nopeFrontCardView` and `likeFrontCardView` methods.
-    [self constructNopeButton];
-    [self constructLikedButton];
+    if ([self.photos count] > 0) {
+        [self loadCards];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -57,6 +51,8 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     NSString *accessToken = [[NSUserDefaults standardUserDefaults] stringForKey:SlocanAccessToken];
     if ([accessToken length] == 0) {
         [self showSignUp];
+    } else {
+        [self fetchPhotosAtPage:1];
     }
 }
 
@@ -74,8 +70,41 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 
 #pragma mark - Internal Methods
 
-- (void)fetchPhotos {
+- (void)fetchPhotosAtPage:(NSInteger)page {
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading...", nil) maskType:SVProgressHUDMaskTypeClear];
     
+    NSInteger userId = [[NSUserDefaults standardUserDefaults] integerForKey:SlocanUserID];
+    if (userId == 0) {
+        userId = 1;
+    }
+    
+    NSDictionary *parameters = @{ @"user_id": @(userId), @"page": @(page) };
+    
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:SlocanBaseURL]];
+    [sessionManager GET:SlocanPhotosPath parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        [SVProgressHUD dismiss];
+        
+        NSLog(@"%@", responseObject);
+        
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            NSArray *responseArray = responseObject;
+            if ([responseArray count] > 0) {
+                self.currentPage = page;
+                
+                self.photos = [responseArray mutableCopy];
+                [self loadCards];
+            } else {
+                [self fetchPhotosAtPage:page+1];
+            }
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [SVProgressHUD dismiss];
+        
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    }];
 }
 
 - (NSArray *)defaultPhotos {
@@ -96,6 +125,32 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
                  @"id": @(1),
                  @"url": @"http://photos-h.ak.instagram.com/hphotos-ak-xpa1/10809812_314522248740311_1728815139_n.jpg" }
     ];
+}
+
+- (void)loadCards {
+    [self.frontCardView removeFromSuperview];
+    [self.backCardView removeFromSuperview];
+    
+    // Display the first SlocanPhotoView in front. Users can swipe to indicate
+    // whether they like or dislike the photo displayed.
+    self.frontCardView = [self popPhotoViewWithFrame:[self frontCardViewFrame]];
+    [self.view addSubview:self.frontCardView];
+    
+    // Display the second SlocanPhotoView in back. This view controller uses
+    // the MDCSwipeToChooseDelegate protocol methods to update the front and
+    // back views after each user swipe.
+    self.backCardView = [self popPhotoViewWithFrame:[self backCardViewFrame]];
+    [self.view insertSubview:self.backCardView belowSubview:self.frontCardView];
+    
+    // Add buttons to programmatically swipe the view left or right.
+    // See the `nopeFrontCardView` and `likeFrontCardView` methods.
+    if (self.nopeButton == nil) {
+        self.nopeButton = [self constructNopeButton];
+    }
+    
+    if (self.likeButton == nil) {
+        self.likeButton = [self constructLikedButton];
+    }
 }
 
 - (void)setFrontCardView:(SlocanPhotoView *)frontCardView {
@@ -153,7 +208,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 }
 
 // Create and add the "nope" button.
-- (void)constructNopeButton {
+- (UIButton *)constructNopeButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *image = [UIImage imageNamed:@"nope"];
     button.frame = CGRectMake(ChoosePhotoButtonHorizontalPadding,
@@ -169,10 +224,11 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
                action:@selector(nopeFrontCardView)
      forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    return button;
 }
 
 // Create and add the "like" button.
-- (void)constructLikedButton {
+- (UIButton *)constructLikedButton {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIImage *image = [UIImage imageNamed:@"liked"];
     button.frame = CGRectMake(CGRectGetMaxX(self.view.frame) - image.size.width - ChoosePhotoButtonHorizontalPadding,
@@ -188,6 +244,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
                action:@selector(likeFrontCardView)
      forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    return button;
 }
 
 #pragma mark Control Events
@@ -205,8 +262,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 #pragma mark - Signup delegate
 
 - (void)didSignupFrom:(id)from {
-    // TODO: Fetch photos after signing up.
-    
+    [self fetchPhotosAtPage:1];
 }
 
 #pragma mark - MDCSwipeToChooseDelegate Protocol Methods
