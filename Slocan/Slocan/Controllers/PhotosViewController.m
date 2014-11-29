@@ -10,6 +10,7 @@
 #import "RegisterViewController.h"
 
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
+#import <AFNetworking/AFNetworking.h>
 
 #import "SlocanPhotoView.h"
 
@@ -33,12 +34,12 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     
     self.photos = [[self defaultPhotos] mutableCopy];
     
-    // Display the first ChoosePersonView in front. Users can swipe to indicate
-    // whether they like or dislike the person displayed.
+    // Display the first SlocanPhotoView in front. Users can swipe to indicate
+    // whether they like or dislike the photo displayed.
     self.frontCardView = [self popPhotoViewWithFrame:[self frontCardViewFrame]];
     [self.view addSubview:self.frontCardView];
 
-    // Display the second ChoosePersonView in back. This view controller uses
+    // Display the second SlocanPhotoView in back. This view controller uses
     // the MDCSwipeToChooseDelegate protocol methods to update the front and
     // back views after each user swipe.
     self.backCardView = [self popPhotoViewWithFrame:[self backCardViewFrame]];
@@ -73,6 +74,10 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 
 #pragma mark - Internal Methods
 
+- (void)fetchPhotos {
+    
+}
+
 - (NSArray *)defaultPhotos {
     // It would be trivial to download these from a web service
     // as needed, but for the purposes of this sample app we'll
@@ -94,7 +99,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 }
 
 - (void)setFrontCardView:(SlocanPhotoView *)frontCardView {
-    // Keep track of the person currently being chosen.
+    // Keep track of the photo currently being chosen.
     // Quick and dirty, just for the purposes of this sample app.
     _frontCardView = frontCardView;
     self.currentPhoto = frontCardView.photo;
@@ -120,8 +125,8 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
                                              CGRectGetHeight(backCardViewFrame));
     };
 
-    // Create a personView with the top person in the people array, then pop
-    // that person off the stack.
+    // Create a photoView with the top photo in the photos array, then pop
+    // that photo off the stack.
     SlocanPhotoView *photoView = [[SlocanPhotoView alloc] initWithFrame:frame photo:self.photos[0] options:options];
     [self.photos removeObjectAtIndex:0];
     return photoView;
@@ -200,6 +205,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 #pragma mark - Signup delegate
 
 - (void)didSignupFrom:(id)from {
+    // TODO: Fetch photos after signing up.
     
 }
 
