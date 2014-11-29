@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01CB00371A29A7870017A3C9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB00361A29A7870017A3C9 /* RegisterViewController.m */; };
 		01CB003A1A29A7A70017A3C9 /* PhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB00391A29A7A70017A3C9 /* PhotosViewController.m */; };
+		01CB003F1A29B2730017A3C9 /* SlocanPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CB003E1A29B2730017A3C9 /* SlocanPhotoView.m */; };
 		14921CD57D235940493F0923 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150FD1B13A579D3A80730DE7 /* Foundation.framework */; };
 		1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9C81A29A4CD00D899E6 /* Itinerary.m */; };
 		1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9CB1A29A53400D899E6 /* Location.m */; };
@@ -37,6 +38,9 @@
 		01CB00381A29A7A70017A3C9 /* PhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosViewController.h; sourceTree = "<group>"; };
 		01CB00391A29A7A70017A3C9 /* PhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosViewController.m; sourceTree = "<group>"; };
 		01CB003B1A29AC000017A3C9 /* SignupDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupDelegate.h; sourceTree = "<group>"; };
+		01CB003C1A29AF230017A3C9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		01CB003D1A29B2730017A3C9 /* SlocanPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlocanPhotoView.h; sourceTree = "<group>"; };
+		01CB003E1A29B2730017A3C9 /* SlocanPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlocanPhotoView.m; sourceTree = "<group>"; };
 		150FD1B13A579D3A80730DE7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1E5EB9C71A29A4CD00D899E6 /* Itinerary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Itinerary.h; sourceTree = "<group>"; };
 		1E5EB9C81A29A4CD00D899E6 /* Itinerary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Itinerary.m; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		466928D73C3D0D1AD1FD445A /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				01CB003C1A29AF230017A3C9 /* Constants.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -195,6 +200,8 @@
 		7FCAF8208607E6054C631E4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				01CB003D1A29B2730017A3C9 /* SlocanPhotoView.h */,
+				01CB003E1A29B2730017A3C9 /* SlocanPhotoView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -424,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01CB00371A29A7870017A3C9 /* RegisterViewController.m in Sources */,
+				01CB003F1A29B2730017A3C9 /* SlocanPhotoView.m in Sources */,
 				01CB003A1A29A7A70017A3C9 /* PhotosViewController.m in Sources */,
 				1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */,
 				1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */,

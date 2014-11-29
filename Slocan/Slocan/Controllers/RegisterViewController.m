@@ -8,10 +8,15 @@
 
 #import "RegisterViewController.h"
 
-@interface RegisterViewController ()
+NSString *const SlocanAccessToken = @"SlocanAccessToken";
+
+@interface RegisterViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *ageTextField;
 @property (weak, nonatomic) IBOutlet UITextField *countryTextField;
+
+@property (copy, nonatomic) NSString *age;
+@property (copy, nonatomic) NSString *country;
 
 @end
 
@@ -31,11 +36,17 @@
 }
 
 - (void)signupAction:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:@"authenticated" forKey:SlocanAccessToken];
+    
     if ([self.delegate respondsToSelector:@selector(didSignupFrom:)]) {
         [self.delegate didSignupFrom:self];
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return YES;
 }
 
 @end
