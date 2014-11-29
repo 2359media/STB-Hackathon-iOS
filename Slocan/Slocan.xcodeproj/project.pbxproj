@@ -14,6 +14,7 @@
 		1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9C81A29A4CD00D899E6 /* Itinerary.m */; };
 		1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9CB1A29A53400D899E6 /* Location.m */; };
 		1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */; };
+		1EBC4AC11A29F172006A68AE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBC4AC01A29F172006A68AE /* CoreLocation.framework */; };
 		1EDDBA2B1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDDBA2A1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m */; };
 		1EDDBA2E1A29DEB80023DB4F /* ItineraryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDDBA2D1A29DEB80023DB4F /* ItineraryDetailViewController.m */; };
 		1EDDBA311A29DED90023DB4F /* ItineraryDetailMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDDBA301A29DED90023DB4F /* ItineraryDetailMapViewController.m */; };
@@ -56,6 +57,7 @@
 		1E5EB9CB1A29A53400D899E6 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		1E5EB9D01A29AF9000D899E6 /* ItinerariesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItinerariesViewController.h; sourceTree = "<group>"; };
 		1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItinerariesViewController.m; sourceTree = "<group>"; };
+		1EBC4AC01A29F172006A68AE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1EDDBA291A29C3510023DB4F /* SLCMainStoryboardIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCMainStoryboardIdentifiers.h; sourceTree = "<group>"; };
 		1EDDBA2A1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCMainStoryboardIdentifiers.m; sourceTree = "<group>"; };
 		1EDDBA2C1A29DEB80023DB4F /* ItineraryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItineraryDetailViewController.h; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EBC4AC11A29F172006A68AE /* CoreLocation.framework in Frameworks */,
 				1EDDBA331A29ECCA0023DB4F /* MapKit.framework in Frameworks */,
 				14921CD57D235940493F0923 /* Foundation.framework in Frameworks */,
 				476A05E40130182103BD9E23 /* libPods-Slocan.a in Frameworks */,
@@ -288,6 +291,7 @@
 		C96EB481FC25CF3DB3BCA668 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1EBC4AC01A29F172006A68AE /* CoreLocation.framework */,
 				1EDDBA321A29ECCA0023DB4F /* MapKit.framework */,
 				73A4530757BDF3B3346603E8 /* iOS */,
 				740D8A220851020022F23846 /* libPods-Slocan.a */,

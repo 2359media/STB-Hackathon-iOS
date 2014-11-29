@@ -38,7 +38,7 @@
     Location *location = day.locations[(NSUInteger)indexPath.row];
     
     cell.textLabel.text = location.locationName;
-    NSString *locationTimeDescription = [NSString stringWithFormat:@"Avg Time Spent: %@ hrs; Best Time To Go: %@", location.averageTimeSpent, NSStringFromSLCTimeToGo(location.bestTimeToGo)];
+    NSString *locationTimeDescription = [location subtitle];
     cell.detailTextLabel.text = locationTimeDescription;
     
     return cell;

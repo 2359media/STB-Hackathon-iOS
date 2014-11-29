@@ -51,18 +51,24 @@
         morningLocation.locationName = @"Morning Location";
         morningLocation.averageTimeSpent = @3;
         morningLocation.bestTimeToGo = SLCTimeToGoMorning;
+        morningLocation.latitude = @(1.402070 + 0.01*dayIdx);
+        morningLocation.longitude = @(103.760827 + 0.01*dayIdx);
         [locations addObject:morningLocation];
         
         Location *afternoonLocation = [[Location alloc] init];
         afternoonLocation.locationName = @"Afternoon Location";
         afternoonLocation.averageTimeSpent = @3;
         afternoonLocation.bestTimeToGo = SLCTimeToGoAfternoon;
+        afternoonLocation.latitude = @(1.388341 + 0.01*dayIdx);
+        afternoonLocation.longitude = @(103.793100 + 0.01*dayIdx);
         [locations addObject:afternoonLocation];
         
         Location *eveningLocation = [[Location alloc] init];
         eveningLocation.locationName = @"Evening Location";
         eveningLocation.averageTimeSpent = @3;
         eveningLocation.bestTimeToGo = SLCTimeToGoEvening;
+        eveningLocation.latitude = @(1.311458 + 0.01*dayIdx);
+        eveningLocation.longitude = @(103.830522 + 0.01*dayIdx);
         [locations addObject:eveningLocation];
         
         aDay.locations = [locations copy];

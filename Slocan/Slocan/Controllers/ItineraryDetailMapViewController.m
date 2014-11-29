@@ -6,9 +6,14 @@
 //  Copyright (c) 2014 2359 Media Pte Ltd. All rights reserved.
 //
 
-#import "ItineraryDetailMapViewController.h"
+@import MapKit;
 
-@interface ItineraryDetailMapViewController ()
+#import "ItineraryDetailMapViewController.h"
+#import "Location.h"
+
+@interface ItineraryDetailMapViewController () <MKMapViewDelegate>
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -16,12 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    NSMutableArray *annotations = [NSMutableArray array];
+    for (ItineraryDay *anItineraryDay in self.itinerary.days) {
+        for (Location *aLocation in anItineraryDay.locations) {
+            [annotations addObject:aLocation];
+        }
+    }
+    [self.mapView addAnnotations:annotations];
 }
 
 /*
@@ -33,5 +40,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+ 
+#pragma mark - MKMapViewDelegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    MKAnnotationView* aView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"MyCustomAnnotation"];
+    return aView;
+}
 
 @end

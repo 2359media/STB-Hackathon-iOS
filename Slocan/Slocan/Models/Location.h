@@ -6,7 +6,9 @@
 //  Copyright (c) 2014 2359 Media Pte Ltd. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+@import CoreLocation;
+@import MapKit;
 
 typedef NS_ENUM(NSUInteger, SLCTimeToGo) {
     SLCTimeToGoMorning,
@@ -14,7 +16,7 @@ typedef NS_ENUM(NSUInteger, SLCTimeToGo) {
     SLCTimeToGoEvening,
 };
 
-@interface Location : NSObject
+@interface Location : NSObject <MKAnnotation>
 
 @property (nonatomic) NSNumber *locationID;
 @property (nonatomic) NSString *locationName;
@@ -22,6 +24,8 @@ typedef NS_ENUM(NSUInteger, SLCTimeToGo) {
 @property (nonatomic) NSArray *images;
 @property (nonatomic) NSNumber *averageTimeSpent;   // number of hoours
 @property (nonatomic) SLCTimeToGo bestTimeToGo;
+@property (nonatomic) NSNumber *latitude;
+@property (nonatomic) NSNumber *longitude;
 
 @end
 

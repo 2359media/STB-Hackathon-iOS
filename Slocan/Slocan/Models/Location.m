@@ -10,6 +10,21 @@
 
 @implementation Location
 
+
+#pragma mark - MKAnnotation
+
+- (CLLocationCoordinate2D)coordinate {
+    return CLLocationCoordinate2DMake([self.latitude doubleValue], [self.longitude doubleValue]);
+}
+
+- (NSString *)title {
+    return self.locationName;
+}
+
+- (NSString *)subtitle {
+    return [NSString stringWithFormat:@"Avg Time Spent: %@ hrs; Best Time To Go: %@", self.averageTimeSpent, NSStringFromSLCTimeToGo(self.bestTimeToGo)];
+}
+
 @end
 
 NSString *NSStringFromSLCTimeToGo(SLCTimeToGo timeToGo) {
