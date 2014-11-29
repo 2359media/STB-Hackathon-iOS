@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PhotoDetailsViewDelegate <NSObject>
+
+- (void)photoDetailsViewDidClose;
+
+@end
+
 @interface PhotoDetailsViewController : UIViewController
 
 @property (nonatomic, copy) NSDictionary *photo;
+@property (nonatomic, weak) id <PhotoDetailsViewDelegate> delegate;
 
 @end
