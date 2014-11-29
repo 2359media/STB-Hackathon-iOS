@@ -11,7 +11,6 @@
 #import "UIView+SLCLabel.h"
 
 #import <AFNetworking/UIImageView+AFNetworking.h>
-#import <UIColor-HTMLColors/UIColor+HTMLColors.h>
 
 static CGFloat const SLCSwipeToChooseViewHorizontalPadding = 10.f;
 static CGFloat const SLCSwipeToChooseViewTopPadding = 20.f;

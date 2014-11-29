@@ -6,7 +6,6 @@ target 'Slocan' do
   pod 'AFNetworking'
   pod 'SVProgressHUD'
   pod 'MHCustomTabBarController'
-  pod 'UIColor-HTMLColors'
 end
 
 target 'UnitTests' do
