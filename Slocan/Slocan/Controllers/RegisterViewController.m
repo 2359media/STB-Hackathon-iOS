@@ -8,7 +8,13 @@
 
 #import "RegisterViewController.h"
 
+#import <AFNetworking/AFNetworking.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+
 NSString *const SlocanAccessToken = @"SlocanAccessToken";
+
+NSString *const SlocanBaseURL = @"http://slocan.herokuapp.com";
+NSString *const SlocanUserPath = @"/api/v1/users";
 
 @interface RegisterViewController () <UITextFieldDelegate>
 
@@ -36,20 +42,80 @@ NSString *const SlocanAccessToken = @"SlocanAccessToken";
 }
 
 - (void)signupAction:(id)sender {
-    // TODO: Sign-up and store a token or a confirmation that user has submitted age & country.
     BOOL valid = [self validateTextField:self.ageTextField];
     if (valid) {
         valid = [self validateTextField:self.countryTextField];
     }
     
     if (valid) {
-        [[NSUserDefaults standardUserDefaults] setObject:@"authenticated" forKey:SlocanAccessToken];
+        [SVProgressHUD showWithStatus:NSLocalizedString(@"Signing Up...", nil) maskType:SVProgressHUDMaskTypeClear];
         
-        if ([self.delegate respondsToSelector:@selector(didSignupFrom:)]) {
-            [self.delegate didSignupFrom:self];
-        }
+        NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+        NSDictionary *parameters = @{ @"device_id": deviceId,
+                                      @"age": @(self.age),
+                                      @"country_origin": self.country };
         
-        [self dismissViewControllerAnimated:YES completion:nil];
+        AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:SlocanBaseURL]];
+        [sessionManager POST:SlocanUserPath parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"%@", responseObject);
+            
+            [SVProgressHUD dismiss];
+            
+            if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *responseDictionary = responseObject;
+                NSString *deviceToken = responseDictionary[@"device_id"];
+                if ([deviceToken length] > 0) {
+                    [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:SlocanAccessToken];
+                    
+                    if ([self.delegate respondsToSelector:@selector(didSignupFrom:)]) {
+                        [self.delegate didSignupFrom:self];
+                    }
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                } else {
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sign up failed", nil)
+                                                                        message:NSLocalizedString(@"Please try again.", nil)
+                                                                       delegate:nil
+                                                              cancelButtonTitle:nil
+                                                              otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+                    [alertView show];
+                }
+            }
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            if (error) {
+                NSData *errorData = [error.userInfo objectForKey:AFNetworkingOperationFailingURLResponseDataErrorKey];
+                if ([errorData length] > 0) {
+                    NSError *jsonError;
+                    NSDictionary *errorDict = [NSJSONSerialization JSONObjectWithData:errorData options:NSJSONReadingAllowFragments error:&jsonError];
+                    NSLog(@"%@", errorDict);
+                    
+                    NSInteger statusCode = [errorDict[@"status_code"] integerValue];
+                    if (statusCode == 4003) {
+                        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"You have signed up", nil)
+                                                                            message:NSLocalizedString(@"You can continue to use the app with your existing data.", nil)
+                                                                           delegate:nil
+                                                                  cancelButtonTitle:nil
+                                                                  otherButtonTitles:NSLocalizedString(@"OK", nil), nil];
+                        [alertView show];
+
+                        NSString *deviceToken = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+                        [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:SlocanAccessToken];
+                        
+                        if ([self.delegate respondsToSelector:@selector(didSignupFrom:)]) {
+                            [self.delegate didSignupFrom:self];
+                        }
+                        
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }
+                    
+                } else {
+                    NSLog(@"%@", error);
+                }
+            }
+            
+            [SVProgressHUD dismiss];
+        }];
     }
 }
 
