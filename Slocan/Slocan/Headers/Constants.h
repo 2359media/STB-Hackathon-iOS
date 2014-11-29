@@ -7,3 +7,8 @@
 //
 
 extern NSString *const SlocanAccessToken;
+
+extern NSString *const SlocanBaseURL;
+
+extern NSString *const SlocanUserPath;
+extern NSString *const SlocanFetchPhotosPath;
