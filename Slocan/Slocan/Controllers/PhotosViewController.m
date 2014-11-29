@@ -73,7 +73,9 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 }
 
 - (void)showSignUp {
-    RegisterViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:SLCMainStoryboardRegisterViewControllerIdentifier];
+    
+    UIStoryboard *onboardStoryboard = [UIStoryboard storyboardWithName:@"Onboard" bundle:nil];
+    RegisterViewController *viewController = [onboardStoryboard instantiateViewControllerWithIdentifier:@"RegisterViewController"];
     viewController.delegate = self;
     
     self.signUpNavigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
