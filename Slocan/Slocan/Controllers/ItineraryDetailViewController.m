@@ -32,7 +32,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SLCMainStoryboardLocationCellIdentifier forIndexPath:indexPath];
     
     ItineraryDay *day = self.itinerary.days[(NSUInteger)indexPath.section];
     Location *location = day.locations[(NSUInteger)indexPath.row];

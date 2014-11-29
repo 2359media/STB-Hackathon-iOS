@@ -73,7 +73,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ItineraryCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SLCMainStoryboardItineraryCellIdentifier forIndexPath:indexPath];
     
     Itinerary *itinerary = self.itineraries[(NSUInteger)indexPath.row];
     cell.textLabel.text = itinerary.itineraryName;
@@ -84,7 +84,7 @@
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"ShowItineraryDetail"]) {
+    if ([segue.identifier isEqualToString:SLCMainStoryboardShowItineraryDetailIdentifier]) {
         ItineraryDetailViewController *itineraryDetailViewController = segue.destinationViewController;
         NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:sender];
         itineraryDetailViewController.itinerary = self.itineraries[(NSUInteger)selectedIndexPath.row];

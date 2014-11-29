@@ -14,6 +14,7 @@
 		1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9C81A29A4CD00D899E6 /* Itinerary.m */; };
 		1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9CB1A29A53400D899E6 /* Location.m */; };
 		1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */; };
+		1EDDBA2B1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDDBA2A1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m */; };
 		1EDE97871A29BA6200404B98 /* ItineraryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDE97861A29BA6200404B98 /* ItineraryDetailViewController.m */; };
 		1EE270116CFCF666624CB22F /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = 4264A9ABD152F0E23180A270 /* LaunchScreen.xib */; };
 		2CBA6C04240E96E0D1E68391 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EA00E6A1E9177F17997B73 /* AppDelegate.m */; };
@@ -49,6 +50,8 @@
 		1E5EB9CB1A29A53400D899E6 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		1E5EB9D01A29AF9000D899E6 /* ItinerariesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItinerariesViewController.h; sourceTree = "<group>"; };
 		1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItinerariesViewController.m; sourceTree = "<group>"; };
+		1EDDBA291A29C3510023DB4F /* SLCMainStoryboardIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCMainStoryboardIdentifiers.h; sourceTree = "<group>"; };
+		1EDDBA2A1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCMainStoryboardIdentifiers.m; sourceTree = "<group>"; };
 		1EDE97851A29BA6200404B98 /* ItineraryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItineraryDetailViewController.h; sourceTree = "<group>"; };
 		1EDE97861A29BA6200404B98 /* ItineraryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItineraryDetailViewController.m; sourceTree = "<group>"; };
 		255AA729BFCC6124B38FD19F /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
@@ -107,6 +110,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1EDDBA281A29C2770023DB4F /* Derived Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1EDDBA291A29C3510023DB4F /* SLCMainStoryboardIdentifiers.h */,
+				1EDDBA2A1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m */,
+			);
+			path = "Derived Sources";
+			sourceTree = "<group>";
+		};
 		3CD611B6EB19F7A893F20F76 /* Slocan */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +129,7 @@
 				5AA743592C0011B06ECDBDF5 /* ViewModels */,
 				416875DE1AC0B484D1D9FFE9 /* Controllers */,
 				7FCAF8208607E6054C631E4A /* Views */,
+				1EDDBA281A29C2770023DB4F /* Derived Sources */,
 			);
 			path = Slocan;
 			sourceTree = "<group>";
@@ -302,6 +315,7 @@
 				0DF54CE6CEEAA74595C617A1 /* Resources */,
 				9D9D6ECBFBAAE5B09804A647 /* Warn for TODO and FIXME comments */,
 				6158BDD0B296B419AB91AF32 /* Copy Pods Resources */,
+				1EDDBA271A29C2180023DB4F /* Generate Storyboard Identifier Constants */,
 			);
 			buildRules = (
 			);
@@ -392,6 +406,20 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		1EDDBA271A29C2180023DB4F /* Generate Storyboard Identifier Constants */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Storyboard Identifier Constants";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "DERIVED_SOURCES=\"$SRCROOT/Slocan/Derived Sources\"\nFROM_DIR=\"$SRCROOT/Resources\"\n$SRCROOT/bin/objc-identifierconstants -f \"$FROM_DIR\" -o \"$DERIVED_SOURCES\" -p SLC";
+		};
 		6158BDD0B296B419AB91AF32 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -438,6 +466,7 @@
 				01CB00371A29A7870017A3C9 /* RegisterViewController.m in Sources */,
 				01CB003F1A29B2730017A3C9 /* SlocanPhotoView.m in Sources */,
 				01CB003A1A29A7A70017A3C9 /* PhotosViewController.m in Sources */,
+				1EDDBA2B1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m in Sources */,
 				1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */,
 				1E5EB9C91A29A4CD00D899E6 /* Itinerary.m in Sources */,
 				2CBA6C04240E96E0D1E68391 /* AppDelegate.m in Sources */,
