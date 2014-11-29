@@ -18,6 +18,8 @@
 NSString *const SlocanPhotosPath = @"/api/v1/photos";
 NSString *const SlocanVotesPath = @"/api/v1/votes";
 
+NSString *const SlocanCurrentPhotoPage = @"SlocanCurrentPhotoPage";
+
 static const CGFloat ChoosePhotoButtonHorizontalPadding = 80.f;
 static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 
@@ -41,6 +43,11 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.currentPage = [[NSUserDefaults standardUserDefaults] integerForKey:SlocanCurrentPhotoPage];
+    if (self.currentPage == 0) {
+        self.currentPage = 1;
+    }
+    
     if ([self.photos count] > 0) {
         [self loadCards];
     }
@@ -54,7 +61,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
         [self showSignUp];
     } else {
         if ([self.photos count] == 0) {
-            [self fetchPhotosAtPage:1];
+            [self fetchPhotosAtPage:self.currentPage];
         }
     }
 }
@@ -95,6 +102,8 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
             NSArray *responseArray = responseObject;
             if ([responseArray count] > 0) {
                 self.currentPage = page;
+                
+                [[NSUserDefaults standardUserDefaults] setInteger:page forKey:SlocanCurrentPhotoPage];
                 
                 self.photos = [responseArray mutableCopy];
                 [self loadCards];
