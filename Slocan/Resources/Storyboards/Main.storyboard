@@ -192,14 +192,14 @@
             </objects>
             <point key="canvasLocation" x="17" y="310"/>
         </scene>
-        <!--Itineraries-->
+        <!--Itineraries View Controller-->
         <scene sceneID="SoU-mT-ai5">
             <objects>
                 <tableViewController id="BPb-SR-udA" customClass="ItinerariesViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QeN-20-0Ev">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ItineraryCell" textLabel="bKl-DU-NOT" style="IBUITableViewCellStyleDefault" id="dZB-JZ-hM2">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -224,13 +224,7 @@
                             <outlet property="delegate" destination="BPb-SR-udA" id="2V2-VL-GQJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Itineraries" id="jYZ-mZ-dEt">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mj9-ZV-RF7">
-                            <connections>
-                                <action selector="createNewItinerary:" destination="BPb-SR-udA" id="9na-T0-t0a"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="jYZ-mZ-dEt"/>
                     <connections>
                         <segue destination="H82-nd-RlZ" kind="push" identifier="CreateNewItinerary" id="pub-g1-YE5"/>
                     </connections>
@@ -438,7 +432,7 @@
                         <viewControllerLayoutGuide type="bottom" id="3Ex-12-do2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KgT-ZW-Ze7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2a-oX-wfv">

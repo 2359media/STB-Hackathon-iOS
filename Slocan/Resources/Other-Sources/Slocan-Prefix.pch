@@ -9,6 +9,8 @@
     @import Foundation;
 
     #import "Constants.h"
+    #import "SLCMainStoryboardIdentifiers.h"
+    #import "UIColor+Hex.h"
+    #import "UIFont+AppFonts.h"
 #endif
 
-#import "SLCMainStoryboardIdentifiers.h"

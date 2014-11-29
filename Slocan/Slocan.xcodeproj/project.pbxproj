@@ -23,6 +23,7 @@
 		1E5EB9CC1A29A53400D899E6 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9CB1A29A53400D899E6 /* Location.m */; };
 		1E5EB9D21A29AF9000D899E6 /* ItinerariesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */; };
 		1E72D3111A2A3FC200D57573 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E72D3101A2A3FC200D57573 /* TabBarController.m */; };
+		1E72D3161A2A4F0600D57573 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E72D3151A2A4F0600D57573 /* UIColor+Hex.m */; };
 		1E9D16DF1A2A32CE00824128 /* SLCTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9D16DE1A2A32CE00824128 /* SLCTabBarButton.m */; };
 		1EBC4AC11A29F172006A68AE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EBC4AC01A29F172006A68AE /* CoreLocation.framework */; };
 		1EDDBA2B1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDDBA2A1A29C3510023DB4F /* SLCMainStoryboardIdentifiers.m */; };
@@ -81,6 +82,8 @@
 		1E5EB9D11A29AF9000D899E6 /* ItinerariesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItinerariesViewController.m; sourceTree = "<group>"; };
 		1E72D30F1A2A3FC200D57573 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		1E72D3101A2A3FC200D57573 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		1E72D3141A2A4F0600D57573 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		1E72D3151A2A4F0600D57573 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		1E9D16DD1A2A32CE00824128 /* SLCTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCTabBarButton.h; sourceTree = "<group>"; };
 		1E9D16DE1A2A32CE00824128 /* SLCTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCTabBarButton.m; sourceTree = "<group>"; };
 		1EBC4AC01A29F172006A68AE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -353,6 +356,8 @@
 		D00C76762988FFB049170C91 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				1E72D3141A2A4F0600D57573 /* UIColor+Hex.h */,
+				1E72D3151A2A4F0600D57573 /* UIColor+Hex.m */,
 				1E0583191A2A0D6F00500758 /* UIFont+AppFonts.h */,
 				1E05831A1A2A0D6F00500758 /* UIFont+AppFonts.m */,
 			);
@@ -571,6 +576,7 @@
 				1EDDBA311A29DED90023DB4F /* ItineraryDetailMapViewController.m in Sources */,
 				1EDE97871A29BA6200404B98 /* ItineraryDetailTableViewController.m in Sources */,
 				01A2FF3E1A2A1DCB00E4E120 /* SLCToolbarView.m in Sources */,
+				1E72D3161A2A4F0600D57573 /* UIColor+Hex.m in Sources */,
 				1EE270116CFCF666624CB22F /* LaunchScreen.xib in Sources */,
 				A571E46B97FD7D2B3A90B7D1 /* main.m in Sources */,
 			);

@@ -22,6 +22,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createFakeData];
+    
+    // Add new schedule button
+    UIButton *addScheduleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [addScheduleButton addTarget:self action:@selector(createNewItinerary:) forControlEvents:UIControlEventTouchUpInside];
+    NSDictionary *attributes = @{
+        NSForegroundColorAttributeName: [UIColor colorWithHexValue:0xb3b3b3],
+        NSFontAttributeName: [UIFont appBookFontOfSize:16],
+    };
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"Add Schedule", nil) attributes:attributes];
+    [addScheduleButton setAttributedTitle:attributedString forState:UIControlStateNormal];
+    [addScheduleButton sizeToFit];
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addScheduleButton];
+    self.navigationItem.rightBarButtonItem = barButtonItem;
 }
 
 - (void)createFakeData {
