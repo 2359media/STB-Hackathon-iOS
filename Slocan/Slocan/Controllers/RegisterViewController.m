@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "SLCPickerToolbar.h"
+#import "SelectInterestViewController.h"
 
 #import <AFNetworking/AFNetworking.h>
 #import <SVProgressHUD/SVProgressHUD.h>
@@ -98,11 +99,8 @@ NSString *const SlocanUserPath = @"/api/v1/users";
                     [[NSUserDefaults standardUserDefaults] setInteger:[userId integerValue] forKey:SlocanUserID];
                     [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:SlocanAccessToken];
                     
-                    if ([self.delegate respondsToSelector:@selector(didSignupFrom:)]) {
-                        [self.delegate didSignupFrom:self];
-                    }
+                    [self showSelectInterest];
                     
-                    [self dismissViewControllerAnimated:YES completion:nil];
                 } else {
                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sign up failed", nil)
                                                                         message:NSLocalizedString(@"Please try again.", nil)
@@ -128,9 +126,7 @@ NSString *const SlocanUserPath = @"/api/v1/users";
                         NSString *deviceToken = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
                         [[NSUserDefaults standardUserDefaults] setObject:deviceToken forKey:SlocanAccessToken];
                         
-                        if ([self.delegate respondsToSelector:@selector(didSignupFrom:)]) {
-                            [self.delegate didSignupFrom:self];
-                        }
+                        [self showSelectInterest];
                         
                         [self dismissViewControllerAnimated:YES completion:nil];
                     }
@@ -143,6 +139,15 @@ NSString *const SlocanUserPath = @"/api/v1/users";
             [SVProgressHUD dismiss];
         }];
     }
+}
+
+- (void)showSelectInterest {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil] ;
+    
+    SelectInterestViewController *selectInterestViewController = [storyboard instantiateViewControllerWithIdentifier:@"SelectInterestViewController"];
+    selectInterestViewController.delegate = self.delegate;
+    
+    [self.navigationController pushViewController:selectInterestViewController animated:YES];
 }
 
 - (BOOL)validateTextField:(UITextField *)textField {
@@ -199,13 +204,13 @@ NSString *const SlocanUserPath = @"/api/v1/users";
     [self.countryTextField resignFirstResponder];
 }
 
-#pragma - PickerView delegates
+#pragma mark - PickerView delegates
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     self.countryTextField.text = self.countries[(NSUInteger)row][@"name"];
 }
 
-#pragma - PickerView datasource
+#pragma mark - PickerView datasource
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
     return (NSInteger)self.countries.count;

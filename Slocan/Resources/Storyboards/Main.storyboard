@@ -20,7 +20,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aBh-Ks-c7b">
                                 <rect key="frame" x="36" y="144" width="248" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <outlet property="delegate" destination="141-W4-5UQ" id="ZkW-vv-HOb"/>
                                 </connections>
@@ -69,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Th9-tX-rCF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.66666666666666" y="322.81333333333333"/>
+            <point key="canvasLocation" x="-479" y="318"/>
         </scene>
         <!--Slocan-->
         <scene sceneID="EDE-hD-dDe">
@@ -89,6 +89,103 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rl4-Kj-kqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1180" y="-14"/>
+        </scene>
+        <!--Pick My Interests-->
+        <scene sceneID="wRw-jp-hGf">
+            <objects>
+                <viewController storyboardIdentifier="SelectInterestViewController" id="uM4-yf-Kxt" customClass="SelectInterestViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yr6-4Y-dHS"/>
+                        <viewControllerLayoutGuide type="bottom" id="9mZ-qe-hJ8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="b00-VX-PLP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNd-Nw-ZF7">
+                                <rect key="frame" x="16" y="356" width="136" height="141"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="irc-U8-ErL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Srb-X5-zbF">
+                                <rect key="frame" x="168" y="356" width="136" height="141"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="XhW-Tm-cAr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1r-eK-I0Z">
+                                <rect key="frame" x="16" y="58" width="136" height="141"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="kUR-XT-xz2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kw8-gx-Ai9">
+                                <rect key="frame" x="168" y="58" width="136" height="141"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="QV2-O2-mMj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkw-Z2-R3J">
+                                <rect key="frame" x="16" y="207" width="136" height="141"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="A8z-AE-FyS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRO-I7-U80">
+                                <rect key="frame" x="168" y="207" width="136" height="141"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleInterest:" destination="uM4-yf-Kxt" eventType="touchUpInside" id="Bm1-Rk-otQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Pick My Interests" id="fa0-Ik-xIh">
+                        <barButtonItem key="rightBarButtonItem" title="Skip" id="6Ge-b8-Uur">
+                            <connections>
+                                <action selector="skipSelectInterest:" destination="uM4-yf-Kxt" id="5Kn-dV-Gyk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="artsButton" destination="d1r-eK-I0Z" id="Gql-hA-Ejd"/>
+                        <outlet property="entertainmentButton" destination="kw8-gx-Ai9" id="vbK-dS-xcE"/>
+                        <outlet property="eventsButton" destination="tkw-Z2-R3J" id="8fw-6x-Lq9"/>
+                        <outlet property="foodButton" destination="BRO-I7-U80" id="NIC-Py-Qlh"/>
+                        <outlet property="outdoorButton" destination="YNd-Nw-ZF7" id="VUi-tg-xix"/>
+                        <outlet property="shopButton" destination="Srb-X5-zbF" id="aB3-4D-55e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kgr-hX-GSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="17" y="310"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZQc-ed-ATQ">

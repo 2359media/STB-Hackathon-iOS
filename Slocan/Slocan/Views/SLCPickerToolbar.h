@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SLCPickerToolbar : UIToolbar
+
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @end

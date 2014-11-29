@@ -8,6 +8,7 @@
 
 #import "PhotosViewController.h"
 #import "RegisterViewController.h"
+#import "SelectInterestViewController.h"
 
 #import "PhotoDetailsViewController.h"
 
@@ -38,6 +39,8 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 @property (nonatomic, strong) UIButton *nopeButton;
 
 @property (nonatomic, strong) NSMutableArray *photos;
+
+@property (nonatomic, strong) UINavigationController *signUpNavigationController;
 
 @end
 
@@ -73,8 +76,8 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     RegisterViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:SLCMainStoryboardRegisterViewControllerIdentifier];
     viewController.delegate = self;
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    [self presentViewController:navigationController animated:YES completion:nil];
+    self.signUpNavigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [self presentViewController:self.signUpNavigationController animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -326,6 +329,8 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 
 - (void)didSignupFrom:(id)from {
     [self fetchPhotosAtPage:1];
+    
+    [self.signUpNavigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - MDCSwipeToChooseDelegate Protocol Methods

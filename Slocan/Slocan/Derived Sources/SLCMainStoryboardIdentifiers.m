@@ -17,4 +17,5 @@ NSString *const SLCMainStoryboardPhotoDetailsNavigationControllerIdentifier = @"
 NSString *const SLCMainStoryboardPhotoDetailsViewControllerIdentifier = @"photoDetailsViewController";
 NSString *const SLCMainStoryboardPhotosViewControllerIdentifier = @"photosViewController";
 NSString *const SLCMainStoryboardRegisterViewControllerIdentifier = @"registerViewController";
+NSString *const SLCMainStoryboardSelectInterestViewControllerIdentifier = @"SelectInterestViewController";
 NSString *const SLCMainStoryboardShowItineraryDetailIdentifier = @"ShowItineraryDetail";
