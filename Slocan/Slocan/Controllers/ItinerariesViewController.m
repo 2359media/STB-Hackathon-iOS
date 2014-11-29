@@ -29,6 +29,8 @@
         NSFontAttributeName: [UIFont appBookFontOfSize:20],
     };
     
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(popViewControllerAnimated:)];
+    
     // Add new schedule button
     UIButton *addScheduleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [addScheduleButton addTarget:self action:@selector(createNewItinerary:) forControlEvents:UIControlEventTouchUpInside];
