@@ -24,6 +24,10 @@
     [self createFakeData];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.titleTextAttributes = @{
+        NSForegroundColorAttributeName: [UIColor whiteColor],
+        NSFontAttributeName: [UIFont appBookFontOfSize:20],
+    };
     
     // Add new schedule button
     UIButton *addScheduleButton = [UIButton buttonWithType:UIButtonTypeCustom];
