@@ -35,6 +35,9 @@
     [addScheduleButton sizeToFit];
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:addScheduleButton];
     self.navigationItem.rightBarButtonItem = barButtonItem;
+    
+    // Remove seperators at the bottom of the table view
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)createFakeData {
@@ -102,7 +105,13 @@
     
     Itinerary *itinerary = self.itineraries[(NSUInteger)indexPath.row];
     cell.textLabel.text = itinerary.itineraryName;
+    NSUInteger numberOfDays = [itinerary.days count];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", numberOfDays, numberOfDays > 1 ? @"Days" : @"Day"];
     
+    UIView *backgroundView = [[UIView alloc] initWithFrame:cell.bounds];
+    backgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.2];
+    cell.backgroundView = backgroundView;
+
     return cell;
 }
 
