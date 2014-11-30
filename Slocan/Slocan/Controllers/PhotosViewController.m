@@ -51,11 +51,6 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.currentPage = [[NSUserDefaults standardUserDefaults] integerForKey:SlocanCurrentPhotoPage];
-    if (self.currentPage == 0) {
-        self.currentPage = 1;
-    }
-    
     if ([self.photos count] > 0) {
         [self loadCards];
     }
@@ -69,7 +64,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
         [self showSignUp];
     } else {
         if ([self.photos count] == 0) {
-            [self fetchPhotosAtPage:self.currentPage];
+            [self fetchPhotosAtPage];
         }
     }
 }
@@ -91,7 +86,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 
 #pragma mark - Internal Methods
 
-- (void)fetchPhotosAtPage:(NSInteger)page {
+- (void)fetchPhotosAtPage {
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Loading...", nil) maskType:SVProgressHUDMaskTypeClear];
     
     // User never saved its user_id, we assume this is only happening on development device.
@@ -101,7 +96,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
         userId = 1;
     }
     
-    NSDictionary *parameters = @{ @"user_id": @(userId), @"page": @(page) };
+    NSDictionary *parameters = @{ @"user_id": @(userId) };
     
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:SlocanBaseURL]];
     [sessionManager GET:SlocanPhotosPath parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -112,9 +107,6 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
         if ([responseObject isKindOfClass:[NSArray class]]) {
             NSArray *responseArray = responseObject;
             if ([responseArray count] > 0) {
-                self.currentPage = page;
-                
-                [[NSUserDefaults standardUserDefaults] setInteger:page forKey:SlocanCurrentPhotoPage];
                 
                 self.photos = [responseArray mutableCopy];
                 [self loadCards];
@@ -359,7 +351,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
 #pragma mark - Signup delegate
 
 - (void)didSignupFrom:(id)from {
-    [self fetchPhotosAtPage:1];
+    [self fetchPhotosAtPage];
     
     [self.signUpNavigationController dismissViewControllerAnimated:YES completion:nil];
 }
@@ -409,7 +401,7 @@ static const CGFloat ChoosePhotoButtonVerticalPadding = 20.f;
     
     // Load next page.
     if (self.frontCardView == nil && self.backCardView == nil && [self.photos count] == 0) {
-        [self fetchPhotosAtPage:self.currentPage+1];
+        [self fetchPhotosAtPage];
     }
 }
 
