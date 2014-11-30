@@ -166,7 +166,7 @@ NSString *const SlocanUserPath = @"/api/v1/users";
     selectInterestViewController.delegate = self.delegate;
     
     [self.navigationController pushViewController:selectInterestViewController animated:YES];
-    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:46.0/255 green:36.0/255 blue:54.0/255 alpha:1.0f]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:46.0f/255 green:36.0f/255 blue:54.0f/255 alpha:1.0f]];
     
     NSDictionary *titleAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont appBookFontOfSize:20.f], NSFontAttributeName,
                                 [UIColor whiteColor], NSForegroundColorAttributeName, nil];
@@ -228,11 +228,21 @@ NSString *const SlocanUserPath = @"/api/v1/users";
     [toolbar.doneButton setTarget:self];
     [toolbar.doneButton setAction:@selector(dismissCountryPicker:)];
     
-    self.countryTextField.inputAccessoryView = toolbar;
+    textField.inputAccessoryView = toolbar;
 }
 
 - (void)dismissCountryPicker:(id)sender {
-    [self.countryTextField resignFirstResponder];
+    
+    if ([self.countryTextField isFirstResponder]) {
+        [self.countryTextField resignFirstResponder];
+    }
+    else if ([self.nameTextField isFirstResponder]) {
+        [self.nameTextField resignFirstResponder];
+    }
+    else {
+        [self.ageTextField resignFirstResponder];
+    }
+    
 }
 
 #pragma mark - PickerView delegates
