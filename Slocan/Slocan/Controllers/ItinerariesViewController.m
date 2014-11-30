@@ -10,6 +10,8 @@
 #import "ItineraryDetailTableViewController.h"
 #import "Itinerary.h"
 #import "Location.h"
+#import <AFNetworking/AFNetworking.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface ItinerariesViewController ()
 
@@ -21,7 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self createFakeData];
+    
+    self.itineraries = [NSMutableArray array];
+    [self getAllItineraries];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.titleTextAttributes = @{
@@ -46,60 +50,6 @@
     
     // Remove seperators at the bottom of the table view
     self.tableView.tableFooterView = [[UIView alloc] init];
-}
-
-- (void)createFakeData {
-    NSMutableArray *itineraries = [NSMutableArray array];
-    
-    for (NSInteger idx = 0; idx < 5; idx++) {
-        [itineraries addObject:[self fakeItinerary]];
-    }
-    
-    self.itineraries = itineraries;
-}
-
-- (Itinerary *)fakeItinerary {
-    static NSInteger count = 0;
-    
-    Itinerary *it = [[Itinerary alloc] init];
-    it.itineraryName = [NSString stringWithFormat:@"Itinerary %ld", ++count];
-    
-    NSMutableArray *days = [NSMutableArray array];
-    for (NSInteger dayIdx = 0; dayIdx < 5; dayIdx++) {
-        
-        ItineraryDay *aDay = [[ItineraryDay alloc] init];
-        
-        NSMutableArray *locations = [NSMutableArray array];
-        
-        Location *morningLocation = [[Location alloc] init];
-        morningLocation.locationName = @"Morning Location";
-        morningLocation.averageTimeSpent = @3;
-        morningLocation.bestTimeToGo = SLCTimeToGoMorning;
-        morningLocation.latitude = @(1.402070 + 0.01*dayIdx);
-        morningLocation.longitude = @(103.760827 + 0.01*dayIdx);
-        [locations addObject:morningLocation];
-        
-        Location *afternoonLocation = [[Location alloc] init];
-        afternoonLocation.locationName = @"Afternoon Location";
-        afternoonLocation.averageTimeSpent = @3;
-        afternoonLocation.bestTimeToGo = SLCTimeToGoAfternoon;
-        afternoonLocation.latitude = @(1.388341 + 0.01*dayIdx);
-        afternoonLocation.longitude = @(103.793100 + 0.01*dayIdx);
-        [locations addObject:afternoonLocation];
-        
-        Location *eveningLocation = [[Location alloc] init];
-        eveningLocation.locationName = @"Evening Location";
-        eveningLocation.averageTimeSpent = @3;
-        eveningLocation.bestTimeToGo = SLCTimeToGoEvening;
-        eveningLocation.latitude = @(1.311458 + 0.01*dayIdx);
-        eveningLocation.longitude = @(103.830522 + 0.01*dayIdx);
-        [locations addObject:eveningLocation];
-        
-        aDay.locations = [locations copy];
-        [days addObject:aDay];
-    }
-    it.days = [days copy];
-    return it;
 }
 
 #pragma mark - UITableViewDataSource
@@ -139,12 +89,48 @@
 
 #pragma mark - Actions
 
+- (void)getAllItineraries {
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Getting all itineraries", nil)];
+    NSInteger userId = [[NSUserDefaults standardUserDefaults] integerForKey:SlocanUserID];
+    if (userId == 0) {
+        userId = 1;
+    }
+    
+    NSDictionary *parameters = @{ @"user_id": @(userId) };
+    
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:SlocanBaseURL]];
+    [sessionManager GET:@"api/v1/itineraries" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSLog(@"%@", responseObject);
+        
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            NSArray *responseArray = responseObject;
+            if ([responseArray count] > 0) {
+                for (NSDictionary *dict in responseArray) {
+                    Itinerary *itinerary = [[Itinerary alloc] initWithDictionary:dict];
+                    [self.itineraries addObject:itinerary];
+                }
+                [self.tableView reloadData];
+            }
+        }
+        [SVProgressHUD dismiss];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [SVProgressHUD dismiss];
+        
+        if (error) {
+            NSLog(@"%@", error);
+        }
+        
+    }];
+}
+
 - (IBAction)createNewItinerary:(id)sender {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Choose A Duration", nil) 
                                                                              message:NSLocalizedString(@"How long would you plan for your next itinerary?", nil)
                                                                        preferredStyle:UIAlertControllerStyleAlert];
     
-    NSArray *allDurations = @[ @(SLCItineraryDurationHalfDay), @(SLCItineraryDurationOneDay), @(SLCItineraryDurationThreeDays) ];
+    NSArray *allDurations = @[ @(SLCItineraryDurationOneDay), @(SLCItineraryDurationThreeDays), @(SLCItineraryDurationFiveDays) ];
 
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
         textField.placeholder = NSLocalizedString(@"Name", nil);
@@ -157,13 +143,20 @@
         [alertController addAction:[UIAlertAction actionWithTitle:durationDescription style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
 
             UITextField *nameTextField = [alertController.textFields firstObject];
+            NSString *name = nameTextField.text;
             
-            // TODO: Request the server for a new itinerary
-            Itinerary *newItinerary = [self fakeItinerary];
-            newItinerary.itineraryName = nameTextField.text;
-            [self.itineraries addObject:newItinerary];
-            [self.tableView reloadData];
-            [self performSegueWithIdentifier:SLCMainStoryboardCreateNewItineraryIdentifier sender:newItinerary];
+            [self requestNewItineraryWithDuration:duration success:^(Itinerary *itinerary) {
+                if ([name length] > 0) {
+                    itinerary.itineraryName = name;
+                }
+                
+                [self.itineraries addObject:itinerary];
+                [self.tableView reloadData];
+                [self performSegueWithIdentifier:SLCMainStoryboardCreateNewItineraryIdentifier sender:itinerary];
+                
+            } failure:^(NSError *error) {
+                //
+            }];
             
         }]];
     }
@@ -171,6 +164,39 @@
     [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil]];
     
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)requestNewItineraryWithDuration:(SLCItineraryDuration)duration
+                                success:(void (^)(Itinerary *itinerary))success
+                                failure:(void (^)(NSError *error))failure {
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Creating a new itinerary", nil)];
+    NSInteger userId = [[NSUserDefaults standardUserDefaults] integerForKey:SlocanUserID];
+    if (userId == 0) {
+        userId = 1;
+    }
+    
+    NSDictionary *parameters = @{ @"user_id": @(userId), @"duration": @(duration) };
+    
+    AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:SlocanBaseURL]];
+    [sessionManager GET:@"api/v1/itineraries/query" parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        [SVProgressHUD dismiss];
+        
+        NSLog(@"%@", responseObject);
+        
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            Itinerary *itinerary = [[Itinerary alloc] initWithDictionary:responseObject];
+            if (success) success(itinerary);
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [SVProgressHUD dismiss];
+        
+        if (error) {
+            NSLog(@"%@", error);
+        }
+        
+        if (failure) failure(error);
+    }];
 }
 
 @end

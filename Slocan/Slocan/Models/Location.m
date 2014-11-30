@@ -10,6 +10,21 @@
 
 @implementation Location
 
+- (instancetype)initWithDictionary:(NSDictionary *)dict {
+    self = [super init];
+    if (self) {
+        _locationID = dict[@"id"];
+        _locationName = dict[@"name"];
+        _address = dict[@"address_blob"];
+        _rating = dict[@"rating"];
+        _tip = dict[@"tip"];
+        _averageTimeSpent = dict[@"avg_time_spent"];
+        _bestTimeToGoString = dict[@"best_time_for_visit"];
+        _latitude = @([dict[@"latitude"] doubleValue]);
+        _longitude = @([dict[@"longigtude"] doubleValue]);
+    }
+    return self;
+}
 
 #pragma mark - MKAnnotation
 
@@ -22,7 +37,7 @@
 }
 
 - (NSString *)subtitle {
-    return [NSString stringWithFormat:@"Best time to go: %@", NSStringFromSLCTimeToGo(self.bestTimeToGo)];
+    return [NSString stringWithFormat:@"Best time to go: %@", self.bestTimeToGoString];
 }
 
 @end

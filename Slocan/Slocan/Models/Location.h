@@ -20,12 +20,17 @@ typedef NS_ENUM(NSUInteger, SLCTimeToGo) {
 
 @property (nonatomic) NSNumber *locationID;
 @property (nonatomic) NSString *locationName;
+@property (nonatomic) NSString *address;
 @property (nonatomic) NSNumber *rating;
+@property (nonatomic) NSString *tip;
 @property (nonatomic) NSArray *images;
 @property (nonatomic) NSNumber *averageTimeSpent;   // number of hoours
 @property (nonatomic) SLCTimeToGo bestTimeToGo;
+@property (nonatomic) NSString *bestTimeToGoString;
 @property (nonatomic) NSNumber *latitude;
 @property (nonatomic) NSNumber *longitude;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
 
 @end
 

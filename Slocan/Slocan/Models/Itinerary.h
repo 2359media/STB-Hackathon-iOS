@@ -16,18 +16,22 @@
 @property (nonatomic) NSString *itineraryName;
 @property (nonatomic) NSArray *days;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+
 @end
 
 @interface ItineraryDay : NSObject
 
 @property (nonatomic) NSArray *locations;
 
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+
 @end
 
 typedef NS_ENUM(NSUInteger, SLCItineraryDuration) {
-    SLCItineraryDurationHalfDay,
-    SLCItineraryDurationOneDay,
-    SLCItineraryDurationThreeDays,
+    SLCItineraryDurationOneDay = 1,
+    SLCItineraryDurationThreeDays = 3,
+    SLCItineraryDurationFiveDays = 5,
 };
 
 NSString *NSStringFromItineraryDuration(SLCItineraryDuration duration);
