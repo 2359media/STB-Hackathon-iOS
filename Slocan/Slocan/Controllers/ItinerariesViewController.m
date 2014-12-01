@@ -64,10 +64,10 @@
     Itinerary *itinerary = self.itineraries[(NSUInteger)indexPath.row];
     cell.textLabel.text = itinerary.itineraryName;
     NSUInteger numberOfDays = [itinerary.days count];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", numberOfDays, numberOfDays > 1 ? @"Days" : @"Day"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (unsigned long)numberOfDays, numberOfDays > 1 ? @"Days" : @"Day"];
     
     UIView *backgroundView = [[UIView alloc] initWithFrame:cell.bounds];
-    backgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.2];
+    backgroundView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:(CGFloat)0.2];
     cell.backgroundView = backgroundView;
 
     return cell;

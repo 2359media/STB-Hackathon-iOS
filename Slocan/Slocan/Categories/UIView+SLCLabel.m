@@ -21,7 +21,7 @@
     label.textColor = color;
     [self addSubview:label];
 
-    self.transform = CGAffineTransformRotate(CGAffineTransformIdentity, (angle * (M_PI/180.0)));
+    self.transform = CGAffineTransformRotate(CGAffineTransformIdentity, (CGFloat)(angle * (M_PI/180.0)));
 }
 
 @end

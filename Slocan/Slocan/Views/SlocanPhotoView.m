@@ -52,11 +52,11 @@ static CGFloat const SLCSwipeToChooseViewLabelWidth = 65.f;
         
         CGFloat height = 64.f;
         self.infoOverlay = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.frame) - height, CGRectGetWidth(frame), height)];
-        self.infoOverlay.backgroundColor = [UIColor colorWithHexString:@"#000000" alpha:0.6];
+        self.infoOverlay.backgroundColor = [UIColor colorWithHexString:@"#000000" alpha:(CGFloat)0.6];
         
         CGFloat width = 64.f;
         self.ratingOverlay = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.infoOverlay.frame) - width, 0, width, height)];
-        self.ratingOverlay.backgroundColor = [UIColor colorWithHexString:@"#29bdba" alpha:0.6];
+        self.ratingOverlay.backgroundColor = [UIColor colorWithHexString:@"#29bdba" alpha:(CGFloat)0.6];
         
         self.ratingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 8, CGRectGetWidth(self.ratingOverlay.frame), 24.f)];
         self.ratingLabel.textAlignment = NSTextAlignmentCenter;
