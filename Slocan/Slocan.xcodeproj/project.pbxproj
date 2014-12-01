@@ -117,7 +117,7 @@
 		5F99A39345F9890EC0B4DD0B /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		740D8A220851020022F23846 /* libPods-Slocan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Slocan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A056DA2406A1AA5E287739C8 /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A0B51FB6DC4E64A083E354CE /* Slocan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slocan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0B51FB6DC4E64A083E354CE /* Sioso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sioso.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4222672AFF6AD2E2C29AB72 /* UnitTests-Prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UnitTests-Prefix.pch"; sourceTree = "<group>"; };
 		BAEBA3582D672BFFA5368FCA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C63D5B58D3DCB33F6FBD69EB /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 		1C9AD3345AA68E2626F2FC76 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0B51FB6DC4E64A083E354CE /* Slocan.app */,
+				A0B51FB6DC4E64A083E354CE /* Sioso.app */,
 				FECC39C85F25CBC35E88028A /* UnitTests.xctest */,
 			);
 			name = Products;
@@ -433,7 +433,7 @@
 			);
 			name = Slocan;
 			productName = Slocan;
-			productReference = A0B51FB6DC4E64A083E354CE /* Slocan.app */;
+			productReference = A0B51FB6DC4E64A083E354CE /* Sioso.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EEA24BC838B07D205B4F4A65 /* UnitTests */ = {
@@ -783,7 +783,7 @@
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"$(inherited)",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Sioso;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -810,7 +810,7 @@
 				INFOPLIST_FILE = "Resources/Other-Sources/Info.plist";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Sioso;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 			};

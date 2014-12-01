@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0A245F96BB28EB1343172E1"
-               BuildableName = "Slocan.app"
+               BuildableName = "Sioso.app"
                BlueprintName = "Slocan"
                ReferencedContainer = "container:Slocan.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0A245F96BB28EB1343172E1"
-            BuildableName = "Slocan.app"
+            BuildableName = "Sioso.app"
             BlueprintName = "Slocan"
             ReferencedContainer = "container:Slocan.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0A245F96BB28EB1343172E1"
-            BuildableName = "Slocan.app"
+            BuildableName = "Sioso.app"
             BlueprintName = "Slocan"
             ReferencedContainer = "container:Slocan.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0A245F96BB28EB1343172E1"
-            BuildableName = "Slocan.app"
+            BuildableName = "Sioso.app"
             BlueprintName = "Slocan"
             ReferencedContainer = "container:Slocan.xcodeproj">
          </BuildableReference>
