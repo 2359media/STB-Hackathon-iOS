@@ -29,6 +29,7 @@ typedef NS_ENUM(NSUInteger, SLCTimeToGo) {
 @property (nonatomic) NSString *bestTimeToGoString;
 @property (nonatomic) NSNumber *latitude;
 @property (nonatomic) NSNumber *longitude;
+@property (nonatomic) NSURL *photoURL;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 

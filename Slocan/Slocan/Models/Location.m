@@ -22,6 +22,7 @@
         _bestTimeToGoString = dict[@"best_time_for_visit"];
         _latitude = @([dict[@"latitude"] doubleValue]);
         _longitude = @([dict[@"longitude"] doubleValue]);
+        _photoURL = [NSURL URLWithString:dict[@"photo"][@"url"]];
     }
     return self;
 }

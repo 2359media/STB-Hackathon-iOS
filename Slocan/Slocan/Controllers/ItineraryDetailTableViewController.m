@@ -10,6 +10,7 @@
 #import "Itinerary.h"
 #import "Location.h"
 #import "SLCLocationCell.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface ItineraryDetailTableViewController ()
 
@@ -41,7 +42,7 @@
     cell.locationNameLabel.text = location.locationName;
     cell.bestTimeToGoLabel.text = [location subtitle];
     cell.avgTimeSpentLabel.text = [NSString stringWithFormat:@"%@ hrs", location.averageTimeSpent];
-    cell.thumbnailView.image = [UIImage imageNamed:@"img_shop"];
+    [cell.thumbnailView setImageWithURL:location.photoURL placeholderImage:[UIImage imageNamed:@"img_shop"]];
     
     // Set background color
     cell.backgroundColor = [UIColor clearColor];
