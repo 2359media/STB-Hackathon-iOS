@@ -21,7 +21,7 @@
         _averageTimeSpent = dict[@"avg_time_spent"];
         _bestTimeToGoString = dict[@"best_time_for_visit"];
         _latitude = @([dict[@"latitude"] doubleValue]);
-        _longitude = @([dict[@"longigtude"] doubleValue]);
+        _longitude = @([dict[@"longitude"] doubleValue]);
     }
     return self;
 }
